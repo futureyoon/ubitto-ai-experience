@@ -1,17 +1,27 @@
+import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { ProductOverview } from "@/components/ProductOverview";
 import { AIFeatures } from "@/components/AIFeatures";
-import { ExperienceLearning } from "@/components/ExperienceLearning";
-import { HowItWorks } from "@/components/HowItWorks";
+import { CoreValue } from "@/components/CoreValue";
+import { UseCases } from "@/components/UseCases";
+import { Outcomes } from "@/components/Outcomes";
+import { SocialProof } from "@/components/SocialProof";
+import { LearnerConnection } from "@/components/LearnerConnection";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Header />
       <Hero />
+      <ProductOverview />
       <AIFeatures />
-      <ExperienceLearning />
-      <HowItWorks />
+      <CoreValue />
+      <UseCases />
+      <Outcomes />
+      <SocialProof />
+      <LearnerConnection />
       <CTA />
       <Footer />
     </div>
