@@ -1,5 +1,5 @@
 import * as React from "react";
-import { WaveDivider } from "./WaveDivider";
+
 import { CircleDecoration } from "./CircleDecoration";
 
 export const Companies = () => {
@@ -22,10 +22,10 @@ export const Companies = () => {
   return (
     <section className="relative py-16 px-6 bg-muted/30 overflow-hidden">
       {/* Decorative Elements */}
-      <CircleDecoration className="top-10 right-20 blur-3xl" size="md" color="secondary" opacity={8} />
-      <div className="absolute bottom-10 left-1/4 w-4 h-4 rounded-full bg-accent/30 animate-float" />
+      <CircleDecoration className="top-10 right-20 blur-3xl -z-10 pointer-events-none" size="md" color="secondary" opacity={8} />
+      <div className="absolute bottom-10 left-1/4 w-4 h-4 rounded-full bg-accent/30 animate-float -z-10 pointer-events-none" />
       
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
             Trusted by Leading Organizations
@@ -53,8 +53,7 @@ export const Companies = () => {
         </div>
       </div>
       
-      {/* Wave Divider Bottom - transitions to next section */}
-      <WaveDivider className="absolute bottom-0 left-0 right-0" color="background" flip />
+      {/* Removed wave divider for cleaner layout */}
     </section>
   );
 };
