@@ -10,6 +10,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { CarouselDots } from "@/components/ui/carousel-dots";
+import Autoplay from "embla-carousel-autoplay";
 
 const reviews = [
   {
@@ -116,6 +117,9 @@ const reviews = [
 
 export const SocialProof = () => {
   const [api, setApi] = React.useState<CarouselApi>();
+  const autoplayPlugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
 
   return (
     <section className="py-24 px-6 bg-background">
@@ -139,6 +143,7 @@ export const SocialProof = () => {
             align: "start",
             loop: true,
           }}
+          plugins={[autoplayPlugin.current]}
           className="w-full"
         >
           <CarouselContent>
