@@ -6,20 +6,20 @@ interface WaveDividerProps {
 
 export const WaveDivider = ({ className = "", flip = false, color = "muted" }: WaveDividerProps) => {
   const colorMap = {
-    primary: "fill-primary/10",
-    secondary: "fill-secondary/10",
-    accent: "fill-accent/10",
-    muted: "fill-muted/30",
+    primary: "fill-primary/5",
+    secondary: "fill-secondary/5",
+    accent: "fill-accent/5",
+    muted: "fill-muted/10",
     background: "fill-background",
   };
 
   return (
-    <div className={`w-full ${flip ? "rotate-180" : ""} ${className}`}>
+    <div className={`w-full ${flip ? "rotate-180" : ""} ${className} opacity-60`}>
       <svg
         viewBox="0 0 1440 120"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-auto"
+        className="w-full h-auto blur-[0.5px]"
         preserveAspectRatio="none"
       >
         <path
