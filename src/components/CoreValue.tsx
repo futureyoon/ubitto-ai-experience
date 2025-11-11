@@ -2,21 +2,17 @@ import { Clock, Target, DollarSign, Merge, Brain, Megaphone } from "lucide-react
 import { Card } from "@/components/ui/card";
 
 const problems = [
-  { icon: Clock, title: "Complex Operations", desc: "Scattered tools lead to time-consuming class prep and management" },
-  { icon: Target, title: "Difficult Personalization", desc: "Hard to identify learner weaknesses in real-time" },
-  { icon: DollarSign, title: "Monetization Challenges", desc: "Booking, payment, and feedback operate separately" },
-  { icon: Clock, title: "Motivation Issues", desc: "Keeping learners motivated is a constant challenge for teachers" },
-  { icon: Target, title: "Scattered Tools", desc: "Teachers juggle multiple apps for quizzes, progress tracking, and student management" },
-  { icon: DollarSign, title: "Inflexible Schedule", desc: "Teachers need flexible options to teach at their free time" },
+  { icon: Target, title: "Scattered Tools & Complex Operations", desc: "Teachers juggle multiple apps for quizzes, progress tracking, student management, and class prep" },
+  { icon: Brain, title: "Difficult Personalization", desc: "Hard to identify learner weaknesses and provide personalized feedback in real-time" },
+  { icon: DollarSign, title: "Monetization Challenges", desc: "Booking, payment, and feedback systems operate separately, creating friction" },
+  { icon: Clock, title: "Inflexible Scheduling & Motivation", desc: "Teachers need flexible teaching options while keeping learners consistently engaged" },
 ];
 
 const solutions = [
-  { icon: Merge, title: "Unified Platform", desc: "Operations, analytics, teaching, payment, community — all in one place" },
-  { icon: Brain, title: "AI-Powered Diagnostics", desc: "Identify learner weaknesses in real-time with automated feedback" },
-  { icon: Megaphone, title: "Enhanced Visibility", desc: "Boost educator and program visibility & conversion rates" },
-  { icon: Brain, title: "Gamified Learning", desc: "AI quizzes and progress tracking keep learners engaged and motivated" },
-  { icon: Merge, title: "All-in-One Solution", desc: "Consolidate quizzes, progress tracking, and student management in a single platform" },
-  { icon: Clock, title: "Flexible Teaching", desc: "Set your own schedule and teach at your convenience with automated booking" },
+  { icon: Merge, title: "Unified All-in-One Platform", desc: "Operations, analytics, teaching, payment, quizzes, and progress tracking — all consolidated in one place" },
+  { icon: Brain, title: "AI-Powered Diagnostics & Gamification", desc: "Real-time learner weakness identification with gamified quizzes that keep students engaged and motivated" },
+  { icon: Megaphone, title: "Enhanced Visibility & Conversion", desc: "Boost educator and program visibility with integrated marketing tools and higher conversion rates" },
+  { icon: Clock, title: "Flexible Automated Scheduling", desc: "Set your own schedule and teach at your convenience with automated booking and notifications" },
 ];
 
 export const CoreValue = () => {
