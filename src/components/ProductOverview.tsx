@@ -5,9 +5,9 @@ export const ProductOverview = () => {
     <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Ubitto란?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">What is Ubitto?</h2>
           <p className="text-xl text-muted-foreground">
-            교사와 학습자가 함께 성장하는 AI 교육 운영 플랫폼
+            An AI-powered education platform where educators and learners grow together
           </p>
         </div>
 
@@ -16,19 +16,19 @@ export const ProductOverview = () => {
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 rounded-full bg-primary mt-2" />
               <p className="text-lg text-foreground">
-                AI 진단과 피드백으로 수업 준비와 채점이 자동화됩니다.
+                Class preparation and grading are automated with AI diagnostics and feedback.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 rounded-full bg-primary mt-2" />
               <p className="text-lg text-foreground">
-                예약, 결제, 알림이 한 시스템에서 작동합니다.
+                Booking, payment, and notifications work seamlessly in one system.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 rounded-full bg-primary mt-2" />
               <p className="text-lg text-foreground">
-                레이더 차트로 학습자의 강점과 약점을 시각화합니다.
+                Radar charts visualize learner strengths and weaknesses.
               </p>
             </div>
           </div>

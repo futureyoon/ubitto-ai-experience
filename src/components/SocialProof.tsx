@@ -5,17 +5,17 @@ const reviews = [
   {
     name: "Jane K.",
     role: "Tutor",
-    quote: "AI 리포트로 피드백 시간이 절반으로 줄었어요.",
+    quote: "AI reports cut my feedback time in half.",
   },
   {
     name: "Ali M.",
     role: "Learner",
-    quote: "약점이 정확히 보여서 학습이 효율적이에요.",
+    quote: "Seeing my weaknesses clearly makes learning so efficient.",
   },
   {
     name: "Hana Studio",
     role: "Institute",
-    quote: "팀 단위 리포트 기능이 최고입니다.",
+    quote: "The team-level reporting feature is outstanding.",
   },
 ];
 
@@ -24,7 +24,7 @@ export const SocialProof = () => {
     <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">교육자와 학습자 후기</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Educator & Learner Reviews</h2>
           <div className="flex items-center justify-center gap-2 mt-6">
             <div className="flex gap-1">
               {[1, 2, 3, 4, 5].map((star) => (

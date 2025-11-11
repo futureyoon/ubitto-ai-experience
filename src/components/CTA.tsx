@@ -8,15 +8,15 @@ export const CTA = () => {
       
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 animate-fade-up">
-          지금 바로 시작하세요
+          Get Started Now
         </h2>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up">
           <Button size="lg" variant="ctaPrimary" asChild>
-            <a href="/for-educators">Educator로 참여</a>
+            <a href="/for-educators">Join as Educator</a>
           </Button>
           <Button size="lg" variant="heroOutline" asChild>
-            <a href="/for-learners">Learner로 참여</a>
+            <a href="/for-learners">Join as Learner</a>
           </Button>
         </div>
       </div>

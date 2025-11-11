@@ -3,22 +3,22 @@ import { ArrowRight } from "lucide-react";
 
 const cases = [
   {
-    title: "개인 튜터",
-    before: "수업 준비·채점에 많은 시간 소요",
-    after: "AI가 자동 채점·피드백 제공",
-    delta: "운영 시간 42% 절감",
+    title: "Individual Tutors",
+    before: "Time-consuming class prep and grading",
+    after: "AI provides automatic grading and feedback",
+    delta: "42% reduction in operational time",
   },
   {
-    title: "소형 학원",
-    before: "강사별 관리와 리포트 분산",
-    after: "중앙 리포트와 학습 경향 분석",
-    delta: "재등록률 18% 향상",
+    title: "Small Academies",
+    before: "Scattered instructor management and reports",
+    after: "Centralized reports and learning trend analysis",
+    delta: "18% increase in re-enrollment",
   },
   {
-    title: "체험 교육자",
-    before: "예약·후기 관리 번거로움",
-    after: "한 시스템에서 예약·후기·홍보 관리",
-    delta: "예약 2배 증가",
+    title: "Experience Educators",
+    before: "Cumbersome booking and review management",
+    after: "Manage booking, reviews, and promotion in one system",
+    delta: "2x increase in bookings",
   },
 ];
 
@@ -27,7 +27,7 @@ export const UseCases = () => {
     <section className="py-24 px-6 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">활용 사례</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Use Cases</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

@@ -29,28 +29,28 @@ export const Hero = () => {
 
       {/* Content Grid */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left - Korean Text */}
+        {/* Left - Text */}
         <div className="animate-fade-up">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            AI로 더 똑똑하게<br />가르치고, 더 깊게 배우다
+            Teach Smarter,<br />Learn Deeper with AI
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8">
-            발음·표현·문법·읽기·쓰기까지 — AI가 진단하고, 연결하고, 성장으로 이어집니다.
+            From pronunciation to grammar, reading to writing — AI diagnoses, connects, and drives growth.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Button size="lg" variant="hero" asChild>
-              <a href="/for-educators">선생님으로 시작</a>
+              <a href="/for-educators">Start as Educator</a>
             </Button>
             <Button size="lg" variant="heroOutline" asChild>
-              <a href="/for-learners">학습자로 시작</a>
+              <a href="/for-learners">Start as Learner</a>
             </Button>
           </div>
 
           <div className="flex flex-wrap gap-6">
             <div className="flex items-center gap-2 text-white/90">
               <Users className="w-5 h-5" />
-              <span className="font-semibold">2만+ 학습자</span>
+              <span className="font-semibold">20,000+ Learners</span>
             </div>
             <div className="flex items-center gap-2 text-white/90">
               <Sparkles className="w-5 h-5" />
@@ -74,11 +74,11 @@ export const Hero = () => {
                 <div className="relative rounded-lg overflow-hidden shadow-2xl">
                   <img 
                     src={educatorDashboard} 
-                    alt="프로그램 생성·예약·관리 통합"
+                    alt="Integrated Program Creation, Booking & Management"
                     className="w-full h-auto"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-white font-semibold">프로그램 생성·예약·관리 통합</p>
+                    <p className="text-white font-semibold">Integrated Program Creation, Booking & Management</p>
                   </div>
                 </div>
               </CarouselItem>
@@ -86,11 +86,11 @@ export const Hero = () => {
                 <div className="relative rounded-lg overflow-hidden shadow-2xl">
                   <img 
                     src={learnerDashboard} 
-                    alt="AI 발음 퀴즈 자동 채점"
+                    alt="AI Pronunciation Quiz Auto-Grading"
                     className="w-full h-auto"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-white font-semibold">AI 발음 퀴즈 자동 채점</p>
+                    <p className="text-white font-semibold">AI Pronunciation Quiz Auto-Grading</p>
                   </div>
                 </div>
               </CarouselItem>
@@ -98,11 +98,11 @@ export const Hero = () => {
                 <div className="relative rounded-lg overflow-hidden shadow-2xl">
                   <img 
                     src={learnerDashboard} 
-                    alt="학습 진행 및 성장 리포트"
+                    alt="Learning Progress & Growth Report"
                     className="w-full h-auto"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-white font-semibold">학습 진행 및 성장 리포트</p>
+                    <p className="text-white font-semibold">Learning Progress & Growth Report</p>
                   </div>
                 </div>
               </CarouselItem>

@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 const modules = [
-  { icon: Search, label: "교사 찾기", href: "/for-learners#find-teacher" },
-  { icon: Map, label: "체험 둘러보기", href: "/for-experience-makers#browse" },
-  { icon: Calendar, label: "바로 예약", href: "/for-learners#booking" },
+  { icon: Search, label: "Find Teachers", href: "/for-learners#find-teacher" },
+  { icon: Map, label: "Browse Experiences", href: "/for-experience-makers#browse" },
+  { icon: Calendar, label: "Book Now", href: "/for-learners#booking" },
 ];
 
 export const LearnerConnection = () => {
@@ -13,9 +13,9 @@ export const LearnerConnection = () => {
     <section className="py-24 px-6 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">학습자와의 연결</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Connecting with Learners</h2>
           <p className="text-xl text-muted-foreground">
-            선생님, 학원, 체험 교육자가 한 공간에서 학습자를 만납니다.
+            Teachers, academies, and experience educators meet learners in one space.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export const LearnerConnection = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{module.label}</h3>
                 <Button variant="outline" asChild>
-                  <a href={module.href}>시작하기</a>
+                  <a href={module.href}>Get Started</a>
                 </Button>
               </Card>
             );
