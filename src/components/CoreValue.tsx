@@ -14,6 +14,9 @@ const solutions = [
   { icon: Merge, title: "Unified Platform", desc: "Operations, analytics, teaching, payment, community — all in one place" },
   { icon: Brain, title: "AI-Powered Diagnostics", desc: "Identify learner weaknesses in real-time with automated feedback" },
   { icon: Megaphone, title: "Enhanced Visibility", desc: "Boost educator and program visibility & conversion rates" },
+  { icon: Brain, title: "Gamified Learning", desc: "AI quizzes and progress tracking keep learners engaged and motivated" },
+  { icon: Merge, title: "All-in-One Solution", desc: "Consolidate quizzes, progress tracking, and student management in a single platform" },
+  { icon: Clock, title: "Flexible Teaching", desc: "Set your own schedule and teach at your convenience with automated booking" },
 ];
 
 export const CoreValue = () => {
