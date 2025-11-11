@@ -27,18 +27,18 @@ export const Companies = () => {
         </div>
 
         <div className="relative">
-          <div className="flex gap-12 animate-scroll">
+          <div className="flex gap-16 animate-scroll">
             {duplicatedCompanies.map((company, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex items-center gap-3"
+                className="flex-shrink-0 flex flex-col items-center gap-2"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-lg font-bold text-primary">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                  <span className="text-2xl font-bold text-primary">
                     {company.name.charAt(0)}
                   </span>
                 </div>
-                <span className="font-semibold text-lg whitespace-nowrap">
+                <span className="text-sm font-medium text-muted-foreground whitespace-nowrap text-center">
                   {company.name}
                 </span>
               </div>
