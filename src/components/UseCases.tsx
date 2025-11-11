@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import { CarouselDots } from "@/components/ui/carousel-dots";
 
-const cases = [
+const allCases = [
   {
     title: "Individual Tutors",
     before: "Time-consuming class prep and grading",
@@ -66,10 +66,23 @@ const cases = [
     after: "Comprehensive analytics and performance reporting",
     delta: "3x faster skill acquisition",
   },
+  {
+    title: "Corporate HRDC Programs",
+    before: "Complex HRDC fund claim processes and manual tracking",
+    after: "Automated HRDC claims with integrated skill enhancement tracking",
+    delta: "Streamlined compliance driving long-term talent development",
+  },
 ];
 
 export const UseCases = () => {
   const [api, setApi] = React.useState<CarouselApi>();
+  const [cases, setCases] = React.useState(allCases);
+
+  React.useEffect(() => {
+    // Shuffle cases on mount
+    const shuffled = [...allCases].sort(() => Math.random() - 0.5);
+    setCases(shuffled);
+  }, []);
 
   return (
     <section className="py-20 px-6 bg-muted/30">

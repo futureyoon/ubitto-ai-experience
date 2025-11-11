@@ -1,43 +1,49 @@
+import * as React from "react";
+
 export const Companies = () => {
   const companies = [
-    { name: "Seoul International School", type: "Educational Institution" },
-    { name: "Korean Language Institute", type: "Language Academy" },
-    { name: "Global Learning Center", type: "Training Organization" },
-    { name: "Busan Language Academy", type: "Private Institute" },
-    { name: "Korea University", type: "University" },
-    { name: "Tech Korea Corp", type: "Corporate Training" },
-    { name: "Language Bridge", type: "Online Academy" },
-    { name: "Seoul Arts School", type: "Arts & Culture" },
+    { name: "Seoul International School" },
+    { name: "Korean Language Institute" },
+    { name: "Global Learning Center" },
+    { name: "Busan Language Academy" },
+    { name: "Korea University" },
+    { name: "Tech Korea Corp" },
+    { name: "Language Bridge" },
+    { name: "Seoul Arts School" },
+    { name: "Incheon Business Academy" },
+    { name: "Digital Skills Korea" },
   ];
 
+  // Duplicate for seamless loop
+  const duplicatedCompanies = [...companies, ...companies];
+
   return (
-    <section className="py-24 px-6 bg-background">
+    <section className="py-16 px-6 bg-muted/30 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
             Trusted by Leading Organizations
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Schools, academies, and institutions worldwide rely on Ubitto
-          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {companies.map((company, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center p-8 border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 animate-fade-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-primary">
-                  {company.name.charAt(0)}
+        <div className="relative">
+          <div className="flex gap-12 animate-scroll">
+            {duplicatedCompanies.map((company, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 flex items-center gap-3"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <span className="text-lg font-bold text-primary">
+                    {company.name.charAt(0)}
+                  </span>
+                </div>
+                <span className="font-semibold text-lg whitespace-nowrap">
+                  {company.name}
                 </span>
               </div>
-              <h3 className="font-semibold text-center mb-2">{company.name}</h3>
-              <p className="text-sm text-muted-foreground text-center">{company.type}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

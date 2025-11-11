@@ -69,7 +69,7 @@ export const SocialProof = () => {
 
   return (
     <section className="py-24 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Educator & Learner Reviews</h2>
           <div className="flex items-center justify-center gap-2 mt-6">
