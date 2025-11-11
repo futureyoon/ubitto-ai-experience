@@ -24,7 +24,7 @@ export const Hero = () => {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-primary/60" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Content Grid */}
