@@ -87,29 +87,33 @@ export const UseCases = () => {
           className="w-full"
         >
           <CarouselContent>
-            {cases.map((useCase, index) => (
-              <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/6">
-                <Card className="p-8 h-full hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <h3 className="text-2xl font-bold mb-6 text-primary">{useCase.title}</h3>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <p className="text-sm font-semibold text-muted-foreground mb-2">Before</p>
-                      <p className="text-foreground">{useCase.before}</p>
-                    </div>
+            {Array.from({ length: Math.ceil(cases.length / 6) }).map((_, pageIndex) => (
+              <CarouselItem key={pageIndex}>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {cases.slice(pageIndex * 6, (pageIndex + 1) * 6).map((useCase, index) => (
+                    <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <h3 className="text-2xl font-bold mb-6 text-primary">{useCase.title}</h3>
+                      
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm font-semibold text-muted-foreground mb-2">Before</p>
+                          <p className="text-foreground">{useCase.before}</p>
+                        </div>
 
-                    <ArrowRight className="w-6 h-6 text-primary mx-auto" />
+                        <ArrowRight className="w-6 h-6 text-primary mx-auto" />
 
-                    <div>
-                      <p className="text-sm font-semibold text-muted-foreground mb-2">After</p>
-                      <p className="text-foreground">{useCase.after}</p>
-                    </div>
+                        <div>
+                          <p className="text-sm font-semibold text-muted-foreground mb-2">After</p>
+                          <p className="text-foreground">{useCase.after}</p>
+                        </div>
 
-                    <div className="pt-4 border-t">
-                      <p className="text-xl font-bold text-accent">{useCase.delta}</p>
-                    </div>
-                  </div>
-                </Card>
+                        <div className="pt-4 border-t">
+                          <p className="text-xl font-bold text-accent">{useCase.delta}</p>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>

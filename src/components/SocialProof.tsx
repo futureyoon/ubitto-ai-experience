@@ -92,20 +92,24 @@ export const SocialProof = () => {
           className="w-full"
         >
           <CarouselContent>
-            {reviews.map((review, index) => (
-              <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                <Card className="p-8 h-full hover:shadow-lg transition-all duration-300">
-                  <div className="flex gap-1 mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-4 h-4 fill-accent text-accent" />
-                    ))}
-                  </div>
-                  <p className="text-lg mb-6 italic">"{review.quote}"</p>
-                  <div>
-                    <p className="font-semibold">{review.name}</p>
-                    <p className="text-sm text-muted-foreground">{review.role}</p>
-                  </div>
-                </Card>
+            {Array.from({ length: Math.ceil(reviews.length / 8) }).map((_, pageIndex) => (
+              <CarouselItem key={pageIndex}>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {reviews.slice(pageIndex * 8, (pageIndex + 1) * 8).map((review, index) => (
+                    <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300">
+                      <div className="flex gap-1 mb-4">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-accent text-accent" />
+                        ))}
+                      </div>
+                      <p className="text-lg mb-6 italic">"{review.quote}"</p>
+                      <div>
+                        <p className="font-semibold">{review.name}</p>
+                        <p className="text-sm text-muted-foreground">{review.role}</p>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
