@@ -1,5 +1,6 @@
 import { Clock, Target, DollarSign, Merge, Brain, Megaphone } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useEffect, useRef, useState } from "react";
 
 const problems = [
   { icon: Target, title: "Scattered Tools & Complex Operations", desc: "Teachers juggle multiple apps for quizzes, progress tracking, student management, and class prep" },
@@ -16,8 +17,28 @@ const solutions = [
 ];
 
 export const CoreValue = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-24 px-6 bg-background">
+    <section ref={sectionRef} className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -35,8 +56,10 @@ export const CoreValue = () => {
                 return (
                   <Card 
                     key={index} 
-                    className="p-6 border-destructive/20 animate-fade-up"
-                    style={{ animationDelay: `${index * 150}ms` }}
+                    className={`p-6 border-destructive/20 transition-all duration-500 ${
+                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    }`}
+                    style={{ transitionDelay: `${index * 150}ms` }}
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center flex-shrink-0">
@@ -62,8 +85,10 @@ export const CoreValue = () => {
                 return (
                   <Card 
                     key={index} 
-                    className="p-6 border-primary/20 animate-fade-up"
-                    style={{ animationDelay: `${index * 150}ms` }}
+                    className={`p-6 border-primary/20 transition-all duration-500 ${
+                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    }`}
+                    style={{ transitionDelay: `${index * 150}ms` }}
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
