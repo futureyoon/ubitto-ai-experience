@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/carousel";
 import { CarouselDots } from "@/components/ui/carousel-dots";
 import Autoplay from "embla-carousel-autoplay";
+import { CircleDecoration } from "./CircleDecoration";
+import { WaveDivider } from "./WaveDivider";
 
 const reviews = [
   {
@@ -122,8 +124,13 @@ export const SocialProof = () => {
   );
 
   return (
-    <section className="py-24 px-6 bg-background">
-      <div className="max-w-5xl mx-auto">
+    <section className="relative py-24 px-6 bg-background overflow-hidden">
+      {/* Decorative Elements */}
+      <CircleDecoration className="top-20 left-20 blur-3xl" size="lg" color="primary" opacity={5} />
+      <CircleDecoration className="bottom-20 right-20 blur-3xl" size="md" color="accent" opacity={8} />
+      <div className="absolute top-1/2 left-1/4 w-5 h-5 rounded-full bg-primary/30 animate-float-delay" />
+      
+      <div className="relative max-w-5xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Educator & Learner Reviews</h2>
           <div className="flex items-center justify-center gap-2 mt-6">
@@ -174,6 +181,9 @@ export const SocialProof = () => {
         
         <CarouselDots api={api} />
       </div>
+      
+      {/* Wave Divider Bottom - transitions to next section */}
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="muted" flip />
     </section>
   );
 };

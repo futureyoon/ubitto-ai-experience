@@ -4,10 +4,7 @@ import { CircleDecoration } from "./CircleDecoration";
 
 export const ProductOverview = () => {
   return (
-    <section className="relative py-24 px-6 bg-background overflow-hidden">
-      {/* Wave Divider Top */}
-      <WaveDivider className="absolute top-0 left-0 right-0" color="primary" />
-      
+    <section className="relative py-24 px-6 bg-background overflow-hidden">      
       {/* Decorative Elements */}
       <CircleDecoration className="top-20 right-10 blur-3xl" size="xl" color="primary" opacity={5} />
       <CircleDecoration className="bottom-20 left-10 blur-3xl" size="lg" color="accent" opacity={8} />
@@ -53,6 +50,9 @@ export const ProductOverview = () => {
           </div>
         </div>
       </div>
+      
+      {/* Wave Divider Bottom - transitions to next section */}
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="muted" flip />
     </section>
   );
 };

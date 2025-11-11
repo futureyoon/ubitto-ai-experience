@@ -1,7 +1,7 @@
 interface WaveDividerProps {
   className?: string;
   flip?: boolean;
-  color?: "primary" | "secondary" | "accent" | "muted";
+  color?: "primary" | "secondary" | "accent" | "muted" | "background";
 }
 
 export const WaveDivider = ({ className = "", flip = false, color = "muted" }: WaveDividerProps) => {
@@ -10,6 +10,7 @@ export const WaveDivider = ({ className = "", flip = false, color = "muted" }: W
     secondary: "fill-secondary/10",
     accent: "fill-accent/10",
     muted: "fill-muted/30",
+    background: "fill-background",
   };
 
   return (

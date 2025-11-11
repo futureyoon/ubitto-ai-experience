@@ -2,6 +2,7 @@ import { Clock, Target, DollarSign, Merge, Brain, Megaphone } from "lucide-react
 import { Card } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
 import { CircleDecoration } from "./CircleDecoration";
+import { WaveDivider } from "./WaveDivider";
 
 const problems = [
   { icon: Target, title: "Scattered Tools & Complex Operations", desc: "Teachers juggle multiple apps for quizzes, progress tracking, student management, and class prep" },
@@ -127,6 +128,9 @@ export const CoreValue = () => {
           </div>
         </div>
       </div>
+      
+      {/* Wave Divider Bottom - transitions to next section */}
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="muted" />
     </section>
   );
 };

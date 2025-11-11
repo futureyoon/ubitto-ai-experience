@@ -47,10 +47,7 @@ const specs = [
 
 export const AIFeatures = () => {
   return (
-    <section className="relative py-24 px-6 bg-muted/30 overflow-hidden">
-      {/* Wave Divider Bottom */}
-      <WaveDivider className="absolute bottom-0 left-0 right-0" color="secondary" flip />
-      
+    <section className="relative py-24 px-6 bg-muted/30 overflow-hidden">      
       {/* Decorative Elements */}
       <CircleDecoration className="top-40 right-20 blur-3xl" size="lg" color="primary" opacity={5} />
       <div className="absolute top-20 left-10 w-8 h-8 rounded-full bg-accent/20 animate-float" />
@@ -102,6 +99,9 @@ export const AIFeatures = () => {
           </div>
         </div>
       </div>
+      
+      {/* Wave Divider Bottom - transitions to next section */}
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="background" flip />
     </section>
   );
 };

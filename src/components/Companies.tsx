@@ -1,4 +1,6 @@
 import * as React from "react";
+import { WaveDivider } from "./WaveDivider";
+import { CircleDecoration } from "./CircleDecoration";
 
 export const Companies = () => {
   const companies = [
@@ -18,8 +20,12 @@ export const Companies = () => {
   const duplicatedCompanies = [...companies, ...companies];
 
   return (
-    <section className="py-16 px-6 bg-muted/30 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-16 px-6 bg-muted/30 overflow-hidden">
+      {/* Decorative Elements */}
+      <CircleDecoration className="top-10 right-20 blur-3xl" size="md" color="secondary" opacity={8} />
+      <div className="absolute bottom-10 left-1/4 w-4 h-4 rounded-full bg-accent/30 animate-float" />
+      
+      <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
             Trusted by Leading Organizations
@@ -46,6 +52,9 @@ export const Companies = () => {
           </div>
         </div>
       </div>
+      
+      {/* Wave Divider Bottom - transitions to next section */}
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="background" />
     </section>
   );
 };

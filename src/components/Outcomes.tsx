@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { WaveDivider } from "./WaveDivider";
+import { CircleDecoration } from "./CircleDecoration";
 
 export const Outcomes = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,8 +56,13 @@ export const Outcomes = () => {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-primary text-primary-foreground">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative py-24 px-6 bg-primary text-primary-foreground overflow-hidden">
+      {/* Decorative Elements */}
+      <CircleDecoration className="top-20 left-10 blur-3xl opacity-20" size="xl" color="accent" opacity={20} />
+      <CircleDecoration className="bottom-20 right-10 blur-3xl opacity-20" size="lg" color="secondary" opacity={15} />
+      <div className="absolute top-1/3 right-1/4 w-5 h-5 rounded-full bg-accent/30 animate-float" />
+      
+      <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Outcomes & Data</h2>
         </div>
@@ -77,6 +84,9 @@ export const Outcomes = () => {
 
         <p className="text-center text-sm opacity-80">* Based on beta partner data</p>
       </div>
+      
+      {/* Wave Divider Bottom - transitions to next section */}
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="muted" />
     </section>
   );
 };

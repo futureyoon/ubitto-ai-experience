@@ -10,6 +10,8 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { CarouselDots } from "@/components/ui/carousel-dots";
+import { WaveDivider } from "./WaveDivider";
+import { CircleDecoration } from "./CircleDecoration";
 
 const allCases = [
   {
@@ -85,8 +87,12 @@ export const UseCases = () => {
   }, []);
 
   return (
-    <section className="py-20 px-6 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-20 px-6 bg-muted/30 overflow-hidden">
+      {/* Decorative Elements */}
+      <CircleDecoration className="top-20 right-20 blur-3xl" size="lg" color="accent" opacity={5} />
+      <div className="absolute top-1/4 left-10 w-6 h-6 rounded-full bg-primary/20 animate-float" />
+      
+      <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-12 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Use Cases</h2>
         </div>
@@ -136,6 +142,9 @@ export const UseCases = () => {
         
         <CarouselDots api={api} />
       </div>
+      
+      {/* Wave Divider Bottom - transitions to next section */}
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="primary" flip />
     </section>
   );
 };
