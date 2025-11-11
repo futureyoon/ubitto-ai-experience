@@ -20,8 +20,8 @@ const allCases = [
   },
   {
     title: "Self-Paced Programs",
-    before: "Difficult to track student progress independently",
-    after: "Automated progress tracking with AI-powered insights",
+    before: "Students miss out due to fixed schedule conflicts",
+    after: "Learn Korean at your own pace with on-demand instructor support",
     delta: "60% improvement in completion rates",
   },
   {
