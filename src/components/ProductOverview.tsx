@@ -2,8 +2,12 @@ import experienceImage from "@/assets/experience-learning.jpg";
 
 export const ProductOverview = () => {
   return (
-    <section className="py-24 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 bg-background overflow-hidden">
+      {/* Decorative Blobs */}
+      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-12 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">What is uBitto?</h2>
           <p className="text-xl text-muted-foreground">
@@ -37,7 +41,7 @@ export const ProductOverview = () => {
             <img 
               src={experienceImage} 
               alt="Platform Overview"
-              className="rounded-2xl shadow-2xl w-full h-auto"
+              className="rounded-3xl shadow-[0_12px_48px_hsl(211_89%_34%_/_0.15)] w-full h-auto"
             />
           </div>
         </div>

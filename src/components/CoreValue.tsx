@@ -52,8 +52,12 @@ export const CoreValue = () => {
   }, [visibleCards]);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative py-24 px-6 bg-background overflow-hidden">
+      {/* Decorative Blobs */}
+      <div className="absolute top-32 left-0 w-[500px] h-[500px] bg-destructive/3 rounded-full blur-3xl" />
+      <div className="absolute bottom-32 right-0 w-[500px] h-[500px] bg-primary/3 rounded-full blur-3xl" />
+      
+      <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Problems uBitto Solves
@@ -71,12 +75,12 @@ export const CoreValue = () => {
                 return (
                   <Card 
                     key={index} 
-                    className={`p-6 border-destructive/20 transition-all duration-700 ${
+                    className={`p-6 bg-destructive/5 transition-all duration-700 ${
                       isCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-destructive/10 flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-destructive" />
                       </div>
                       <div>
@@ -100,12 +104,12 @@ export const CoreValue = () => {
                 return (
                   <Card 
                     key={index} 
-                    className={`p-6 border-primary/20 transition-all duration-700 ${
+                    className={`p-6 bg-primary/5 transition-all duration-700 ${
                       isCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>

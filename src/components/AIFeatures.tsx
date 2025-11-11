@@ -57,10 +57,10 @@ export const AIFeatures = () => {
             return (
               <Card
                 key={index}
-                className="p-8 hover:shadow-lg transition-all duration-300 hover:scale-105 hover:border-primary/50 animate-fade-up group cursor-pointer"
+                className="p-8 transition-all duration-300 hover:scale-105 animate-fade-up group cursor-pointer"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="mb-6 w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
@@ -71,7 +71,7 @@ export const AIFeatures = () => {
         </div>
 
         {/* Specs Table */}
-        <div className="bg-card rounded-xl p-8 shadow-lg animate-fade-up">
+        <div className="bg-card rounded-3xl p-8 shadow-[0_8px_32px_hsl(211_89%_34%_/_0.08)] animate-fade-up">
           <h3 className="text-2xl font-bold mb-6">Technical Specifications</h3>
           <div className="overflow-x-auto">
             <table className="w-full">

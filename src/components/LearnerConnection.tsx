@@ -25,10 +25,10 @@ export const LearnerConnection = () => {
             return (
               <Card
                 key={index}
-                className="p-8 text-center hover:shadow-lg transition-all duration-300 hover:scale-105 animate-fade-up"
+                className="p-8 text-center transition-all duration-300 hover:scale-105 animate-fade-up"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-primary/10 flex items-center justify-center">
                   <Icon className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{module.label}</h3>

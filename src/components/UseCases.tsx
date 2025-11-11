@@ -104,7 +104,7 @@ export const UseCases = () => {
               <CarouselItem key={pageIndex}>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {cases.slice(pageIndex * 6, (pageIndex + 1) * 6).map((useCase, index) => (
-                    <Card key={index} className="p-6 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <Card key={index} className="p-6 transition-all duration-300 hover:scale-105">
                       <h3 className="text-xl font-bold mb-4 text-primary">{useCase.title}</h3>
                       
                       <div className="space-y-3">

@@ -6,6 +6,10 @@ export const CTA = () => {
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent" />
       
+      {/* Decorative Blobs */}
+      <div className="absolute top-10 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 animate-fade-up">
           Get Started Now
