@@ -62,6 +62,56 @@ const reviews = [
     role: "Language Institute Director",
     quote: "Student satisfaction scores jumped 30% since we started using Ubitto.",
   },
+  {
+    name: "Rachel Thompson",
+    role: "Online Tutor",
+    quote: "The payment integration is seamless. I get paid on time, every time.",
+  },
+  {
+    name: "Kevin Wong",
+    role: "Music Teacher",
+    quote: "My students love the interactive quizzes. Engagement has never been higher.",
+  },
+  {
+    name: "Sophia Martinez",
+    role: "IELTS Instructor",
+    quote: "The AI feedback helps my students improve faster than traditional methods.",
+  },
+  {
+    name: "Tokyo Language Center",
+    role: "Academy",
+    quote: "We scaled from 50 to 200 students without hiring more admin staff.",
+  },
+  {
+    name: "Chris Anderson",
+    role: "Corporate L&D Manager",
+    quote: "HRDC claims are now automated. This alone saved us 15 hours per month.",
+  },
+  {
+    name: "Lisa Chang",
+    role: "Art Workshop Leader",
+    quote: "The scheduling feature eliminated double bookings completely.",
+  },
+  {
+    name: "Ahmed Hassan",
+    role: "Math Tutor",
+    quote: "Parents love the detailed progress reports. My retention rate is now 95%.",
+  },
+  {
+    name: "Nina Patel",
+    role: "Yoga Instructor",
+    quote: "From booking to payment to feedback - everything is in one place. Life-changing.",
+  },
+  {
+    name: "Singapore Skills Institute",
+    role: "Training Center",
+    quote: "The platform paid for itself in the first month through increased bookings.",
+  },
+  {
+    name: "Tom Bradley",
+    role: "Coding Bootcamp Instructor",
+    quote: "My students see their progress visually. It keeps them motivated through tough concepts.",
+  },
 ];
 
 export const SocialProof = () => {
