@@ -17,25 +17,39 @@ const solutions = [
 ];
 
 export const CoreValue = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visibleCards, setVisibleCards] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (isInView) {
+        const currentScrollY = window.scrollY;
+        const scrollDiff = Math.abs(currentScrollY - lastScrollY.current);
+
+        // Show first card when section enters view
+        if (visibleCards === 0) {
+          setVisibleCards(1);
+          lastScrollY.current = currentScrollY;
         }
-      },
-      { threshold: 0.1 }
-    );
+        // Show next card after scrolling ~100px
+        else if (scrollDiff > 100 && visibleCards < problems.length) {
+          setVisibleCards(prev => Math.min(prev + 1, problems.length));
+          lastScrollY.current = currentScrollY;
+        }
+      }
+    };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
 
-    return () => observer.disconnect();
-  }, []);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [visibleCards]);
 
   return (
     <section ref={sectionRef} className="py-24 px-6 bg-background">
@@ -53,13 +67,13 @@ export const CoreValue = () => {
             <div className="space-y-6">
               {problems.map((problem, index) => {
                 const Icon = problem.icon;
+                const isCardVisible = index < visibleCards;
                 return (
                   <Card 
                     key={index} 
-                    className={`p-6 border-destructive/20 transition-all duration-500 ${
-                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    className={`p-6 border-destructive/20 transition-all duration-700 ${
+                      isCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
-                    style={{ transitionDelay: `${index * 150}ms` }}
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center flex-shrink-0">
@@ -82,13 +96,13 @@ export const CoreValue = () => {
             <div className="space-y-6">
               {solutions.map((solution, index) => {
                 const Icon = solution.icon;
+                const isCardVisible = index < visibleCards;
                 return (
                   <Card 
                     key={index} 
-                    className={`p-6 border-primary/20 transition-all duration-500 ${
-                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    className={`p-6 border-primary/20 transition-all duration-700 ${
+                      isCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
-                    style={{ transitionDelay: `${index * 150}ms` }}
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
