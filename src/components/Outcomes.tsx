@@ -1,9 +1,12 @@
 export const Outcomes = () => {
   const kpis = [
+    { label: "Operational Efficiency", value: "+45%" },
+    { label: "Return Rate", value: "+25%" },
+    { label: "Booking Conversion", value: "x2.1" },
+    { label: "AI Quiz Usage", value: "65% monthly active" },
     { label: "Student Retention Period", value: "4x" },
     { label: "Engagement Rate", value: "6x" },
     { label: "Income Booked", value: "8x" },
-    { label: "Operational Efficiency", value: "+45%" },
   ];
 
   return (
@@ -13,7 +16,7 @@ export const Outcomes = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Outcomes & Data</h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-8 mb-8">
           {kpis.map((kpi, index) => (
             <div
               key={index}

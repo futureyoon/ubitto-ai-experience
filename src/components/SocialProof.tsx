@@ -1,12 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import * as React from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
+import { CarouselDots } from "@/components/ui/carousel-dots";
 
 const reviews = [
   {
@@ -62,6 +65,8 @@ const reviews = [
 ];
 
 export const SocialProof = () => {
+  const [api, setApi] = React.useState<CarouselApi>();
+
   return (
     <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -79,6 +84,7 @@ export const SocialProof = () => {
         </div>
 
         <Carousel
+          setApi={setApi}
           opts={{
             align: "start",
             loop: true,
@@ -106,6 +112,8 @@ export const SocialProof = () => {
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
         </Carousel>
+        
+        <CarouselDots api={api} />
       </div>
     </section>
   );

@@ -1,12 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import * as React from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
+import { CarouselDots } from "@/components/ui/carousel-dots";
 
 const cases = [
   {
@@ -66,6 +69,8 @@ const cases = [
 ];
 
 export const UseCases = () => {
+  const [api, setApi] = React.useState<CarouselApi>();
+
   return (
     <section className="py-24 px-6 bg-muted/30">
       <div className="max-w-7xl mx-auto">
@@ -74,6 +79,7 @@ export const UseCases = () => {
         </div>
 
         <Carousel
+          setApi={setApi}
           opts={{
             align: "start",
             loop: true,
@@ -110,6 +116,8 @@ export const UseCases = () => {
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
         </Carousel>
+        
+        <CarouselDots api={api} />
       </div>
     </section>
   );
