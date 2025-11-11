@@ -45,7 +45,7 @@ const reviews = [
   {
     name: "Emma Wilson",
     role: "Experience Maker",
-    quote: "Bookings doubled after joining Ubitto. The visibility is incredible.",
+    quote: "Bookings doubled after joining uBitto. The visibility is incredible.",
   },
   {
     name: "Seoul International School",
@@ -60,7 +60,7 @@ const reviews = [
   {
     name: "Maria Rodriguez",
     role: "Language Institute Director",
-    quote: "Student satisfaction scores jumped 30% since we started using Ubitto.",
+    quote: "Student satisfaction scores jumped 30% since we started using uBitto.",
   },
   {
     name: "Rachel Thompson",

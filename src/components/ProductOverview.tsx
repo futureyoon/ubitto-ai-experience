@@ -5,7 +5,7 @@ export const ProductOverview = () => {
     <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">What is Ubitto?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">What is uBitto?</h2>
           <p className="text-xl text-muted-foreground">
             An AI-powered education platform where educators and learners grow together
           </p>

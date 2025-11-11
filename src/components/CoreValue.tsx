@@ -56,7 +56,7 @@ export const CoreValue = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Problems Ubitto Solves
+            Problems uBitto Solves
           </h2>
         </div>
 

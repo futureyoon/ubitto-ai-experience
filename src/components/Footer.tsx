@@ -23,15 +23,15 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Ubitto</h3>
+            <h3 className="text-2xl font-bold mb-4">uBitto</h3>
             <p className="text-accent-foreground/80">
               Empowering educators and inspiring learners through AI-powered Korean language education.
             </p>
           </div>
 
-          {/* Ubitto Links */}
+          {/* uBitto Links */}
           <div>
-            <h4 className="font-semibold mb-4">Ubitto</h4>
+            <h4 className="font-semibold mb-4">uBitto</h4>
             <ul className="space-y-2">
               {footerLinks.ubitto.map((link, index) => (
                 <li key={index}>
@@ -88,7 +88,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-accent-foreground/20 pt-8 text-center text-accent-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Ubitto. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} uBitto. All rights reserved.</p>
         </div>
       </div>
     </footer>

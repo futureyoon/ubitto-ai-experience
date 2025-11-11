@@ -38,7 +38,7 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
     
-    /* Ubitto custom tokens */
+    /* uBitto custom tokens */
     --gradient-hero: linear-gradient(135deg, hsl(211, 89%, 34%), hsl(207, 82%, 61%));
     --gradient-cta: linear-gradient(120deg, hsl(211, 89%, 34%), hsl(45, 99%, 58%));
     --shadow-glow: 0 0 40px hsl(211 89% 34% / 0.3);
