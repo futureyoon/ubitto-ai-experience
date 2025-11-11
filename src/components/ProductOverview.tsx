@@ -1,11 +1,18 @@
 import experienceImage from "@/assets/experience-learning.jpg";
+import { WaveDivider } from "./WaveDivider";
+import { CircleDecoration } from "./CircleDecoration";
 
 export const ProductOverview = () => {
   return (
     <section className="relative py-24 px-6 bg-background overflow-hidden">
-      {/* Decorative Blobs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+      {/* Wave Divider Top */}
+      <WaveDivider className="absolute top-0 left-0 right-0" color="primary" />
+      
+      {/* Decorative Elements */}
+      <CircleDecoration className="top-20 right-10 blur-3xl" size="xl" color="primary" opacity={5} />
+      <CircleDecoration className="bottom-20 left-10 blur-3xl" size="lg" color="accent" opacity={8} />
+      <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full bg-accent/30 animate-float" />
+      <div className="absolute bottom-1/3 left-1/4 w-3 h-3 rounded-full bg-primary/40 animate-float-delay" />
       
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-12 animate-fade-up">
@@ -41,7 +48,7 @@ export const ProductOverview = () => {
             <img 
               src={experienceImage} 
               alt="Platform Overview"
-              className="rounded-3xl shadow-[0_12px_48px_hsl(211_89%_34%_/_0.15)] w-full h-auto"
+              className="rounded-2xl shadow-[0_12px_48px_hsl(211_89%_34%_/_0.15)] w-full h-auto"
             />
           </div>
         </div>

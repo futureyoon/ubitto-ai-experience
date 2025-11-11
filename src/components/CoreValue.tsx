@@ -1,6 +1,7 @@
 import { Clock, Target, DollarSign, Merge, Brain, Megaphone } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
+import { CircleDecoration } from "./CircleDecoration";
 
 const problems = [
   { icon: Target, title: "Scattered Tools & Complex Operations", desc: "Teachers juggle multiple apps for quizzes, progress tracking, student management, and class prep" },
@@ -53,9 +54,11 @@ export const CoreValue = () => {
 
   return (
     <section ref={sectionRef} className="relative py-24 px-6 bg-background overflow-hidden">
-      {/* Decorative Blobs */}
-      <div className="absolute top-32 left-0 w-[500px] h-[500px] bg-destructive/3 rounded-full blur-3xl" />
-      <div className="absolute bottom-32 right-0 w-[500px] h-[500px] bg-primary/3 rounded-full blur-3xl" />
+      {/* Decorative Elements */}
+      <CircleDecoration className="top-32 left-0 blur-3xl" size="xl" color="accent" opacity={3} />
+      <CircleDecoration className="bottom-32 right-0 blur-3xl" size="xl" color="primary" opacity={3} />
+      <div className="absolute top-1/4 right-20 w-6 h-6 rounded-full bg-destructive/20 animate-float" />
+      <div className="absolute bottom-1/4 left-20 w-5 h-5 rounded-full bg-primary/30 animate-float-delay" />
       
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
@@ -80,7 +83,7 @@ export const CoreValue = () => {
                     }`}
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-destructive/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-destructive" />
                       </div>
                       <div>
@@ -109,7 +112,7 @@ export const CoreValue = () => {
                     }`}
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>

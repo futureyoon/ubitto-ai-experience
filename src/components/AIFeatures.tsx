@@ -1,5 +1,7 @@
 import { Mic, Radar, Calendar, BarChart3, Zap, Users } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { WaveDivider } from "./WaveDivider";
+import { CircleDecoration } from "./CircleDecoration";
 
 const features = [
   {
@@ -45,8 +47,15 @@ const specs = [
 
 export const AIFeatures = () => {
   return (
-    <section className="py-24 px-6 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 bg-muted/30 overflow-hidden">
+      {/* Wave Divider Bottom */}
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="secondary" flip />
+      
+      {/* Decorative Elements */}
+      <CircleDecoration className="top-40 right-20 blur-3xl" size="lg" color="primary" opacity={5} />
+      <div className="absolute top-20 left-10 w-8 h-8 rounded-full bg-accent/20 animate-float" />
+      
+      <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Core Features</h2>
         </div>
@@ -60,7 +69,7 @@ export const AIFeatures = () => {
                 className="p-8 transition-all duration-300 hover:scale-105 animate-fade-up group cursor-pointer"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <div className="mb-6 w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
@@ -71,7 +80,7 @@ export const AIFeatures = () => {
         </div>
 
         {/* Specs Table */}
-        <div className="bg-card rounded-3xl p-8 shadow-[0_8px_32px_hsl(211_89%_34%_/_0.08)] animate-fade-up">
+        <div className="bg-card rounded-xl p-8 shadow-[0_8px_32px_hsl(211_89%_34%_/_0.08)] animate-fade-up">
           <h3 className="text-2xl font-bold mb-6">Technical Specifications</h3>
           <div className="overflow-x-auto">
             <table className="w-full">

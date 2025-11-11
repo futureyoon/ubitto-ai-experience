@@ -71,7 +71,7 @@ export const Hero = () => {
           >
             <CarouselContent>
               <CarouselItem>
-                <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_64px_hsl(0_0%_0%_/_0.3)]">
+                <div className="relative rounded-lg overflow-hidden shadow-[0_16px_64px_hsl(0_0%_0%_/_0.3)]">
                   <img 
                     src={educatorDashboard} 
                     alt="Integrated Program Creation, Booking & Management"
@@ -83,7 +83,7 @@ export const Hero = () => {
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_64px_hsl(0_0%_0%_/_0.3)]">
+                <div className="relative rounded-lg overflow-hidden shadow-[0_16px_64px_hsl(0_0%_0%_/_0.3)]">
                   <img 
                     src={learnerDashboard} 
                     alt="AI Pronunciation Quiz Auto-Grading"
@@ -95,7 +95,7 @@ export const Hero = () => {
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_64px_hsl(0_0%_0%_/_0.3)]">
+                <div className="relative rounded-lg overflow-hidden shadow-[0_16px_64px_hsl(0_0%_0%_/_0.3)]">
                   <img 
                     src={learnerDashboard} 
                     alt="Learning Progress & Growth Report"

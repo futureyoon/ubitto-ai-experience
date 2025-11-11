@@ -1,6 +1,7 @@
 import { Search, Map, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { CircleDecoration } from "./CircleDecoration";
 
 const modules = [
   { icon: Search, label: "Find Teachers", href: "/for-learners#find-teacher" },
@@ -10,8 +11,13 @@ const modules = [
 
 export const LearnerConnection = () => {
   return (
-    <section className="py-24 px-6 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 bg-muted/30 overflow-hidden">
+      {/* Decorative Elements */}
+      <CircleDecoration className="top-20 left-10 blur-3xl" size="md" color="secondary" opacity={8} />
+      <CircleDecoration className="bottom-20 right-10 blur-3xl" size="lg" color="accent" opacity={5} />
+      <div className="absolute top-1/3 right-1/4 w-5 h-5 rounded-full bg-primary/30 animate-float" />
+      
+      <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Connecting with Learners</h2>
           <p className="text-xl text-muted-foreground">
@@ -28,7 +34,7 @@ export const LearnerConnection = () => {
                 className="p-8 text-center transition-all duration-300 hover:scale-105 animate-fade-up"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-primary/10 flex items-center justify-center">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
                   <Icon className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{module.label}</h3>

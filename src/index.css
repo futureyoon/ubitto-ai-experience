@@ -36,7 +36,7 @@ All colors MUST be HSL.
     --input: 210 30% 90%;
     --ring: 211 89% 34%;
 
-    --radius: 1.25rem;
+    --radius: 0.75rem;
     
     /* uBitto custom tokens */
     --gradient-hero: linear-gradient(135deg, hsl(211, 89%, 34%), hsl(207, 82%, 61%));
