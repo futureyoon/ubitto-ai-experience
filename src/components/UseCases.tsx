@@ -144,7 +144,7 @@ export const UseCases = () => {
       </div>
       
       {/* Wave Divider Bottom - transitions to next section */}
-      <WaveDivider className="absolute bottom-0 left-0 right-0" color="primary" flip />
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="primary" />
     </section>
   );
 };
