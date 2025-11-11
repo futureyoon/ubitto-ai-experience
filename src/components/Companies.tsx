@@ -54,7 +54,7 @@ export const Companies = () => {
       </div>
       
       {/* Wave Divider Bottom - transitions to next section */}
-      <WaveDivider className="absolute bottom-0 left-0 right-0" color="background" />
+      <WaveDivider className="absolute bottom-0 left-0 right-0" color="background" flip />
     </section>
   );
 };
