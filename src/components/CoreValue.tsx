@@ -33,7 +33,11 @@ export const CoreValue = () => {
               {problems.map((problem, index) => {
                 const Icon = problem.icon;
                 return (
-                  <Card key={index} className="p-6 border-destructive/20">
+                  <Card 
+                    key={index} 
+                    className="p-6 border-destructive/20 animate-fade-up"
+                    style={{ animationDelay: `${index * 150}ms` }}
+                  >
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-destructive" />
@@ -56,7 +60,11 @@ export const CoreValue = () => {
               {solutions.map((solution, index) => {
                 const Icon = solution.icon;
                 return (
-                  <Card key={index} className="p-6 border-primary/20">
+                  <Card 
+                    key={index} 
+                    className="p-6 border-primary/20 animate-fade-up"
+                    style={{ animationDelay: `${index * 150}ms` }}
+                  >
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-primary" />
