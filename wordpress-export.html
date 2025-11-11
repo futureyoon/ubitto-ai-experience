@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uBitto - Teach Smarter, Learn Deeper with AI</title>
+    <meta name="description" content="AI-powered Korean language education platform connecting educators and learners. From pronunciation to grammar, reading to writing — AI diagnoses, connects, and drives growth.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Design System - All colors in HSL */
+        :root {
+            --background: hsl(210, 40%, 98%);
+            --foreground: hsl(193, 85%, 16%);
+            --primary: hsl(211, 89%, 34%);
+            --primary-foreground: hsl(0, 0%, 100%);
+            --secondary: hsl(207, 82%, 61%);
+            --muted: hsl(210, 30%, 94%);
+            --muted-foreground: hsl(220, 9%, 46%);
+            --accent: hsl(45, 99%, 58%);
+            --accent-foreground: hsl(222.2, 47.4%, 11.2%);
+            --border: hsl(210, 30%, 90%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .header.scrolled {
+            background: hsla(210, 40%, 98%, 0.8);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 24px hsla(210, 30%, 70%, 0.12);
+        }
+        
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: var(--foreground);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover {
+            color: var(--primary);
+            opacity: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+        
+        .btn-primary:hover {
+            background: hsl(211, 89%, 30%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px hsla(211, 89%, 34%, 0.3);
+        }
+        
+        .btn-hero {
+            background: var(--accent);
+            color: var(--accent-foreground);
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+        }
+        
+        .btn-hero:hover {
+            background: hsl(45, 99%, 52%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px hsla(45, 99%, 58%, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 5rem;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://ubitto-ai-experience.lovable.app/src/assets/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hero-stat svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        /* Section Styles */
+        .section {
+            position: relative;
+            padding: 6rem 1.5rem;
+            overflow: hidden;
+        }
+        
+        .section-muted {
+            background: hsla(210, 30%, 94%, 0.3);
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+        }
+        
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 3rem;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 8px 32px hsla(211, 89%, 34%, 0.08);
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px hsla(211, 89%, 34%, 0.15);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .card-icon {
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: hsla(211, 89%, 34%, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-icon svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: var(--primary);
+        }
+        
+        /* Product Overview */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+        
+        .feature-bullet {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: var(--primary);
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-item p {
+            font-size: 1.125rem;
+            color: var(--foreground);
+        }
+        
+        .overview-image {
+            border-radius: 1rem;
+            box-shadow: 0 12px 48px hsla(211, 89%, 34%, 0.15);
+            width: 100%;
+            height: auto;
+        }
+        
+        /* Use Case Cards */
+        .use-case-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 16px hsla(211, 89%, 34%, 0.08);
+            transition: all 0.3s;
+        }
+        
+        .use-case-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .use-case-card h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .use-case-section {
+            margin-bottom: 0.75rem;
+        }
+        
+        .use-case-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--muted-foreground);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+        
+        .use-case-text {
+            font-size: 0.875rem;
+            color: var(--foreground);
+        }
+        
+        .arrow-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--primary);
+            margin: 0.75rem auto;
+            display: block;
+        }
+        
+        .use-case-delta {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--accent);
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        /* Companies Section */
+        .companies-scroll {
+            display: flex;
+            gap: 4rem;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .companies-scroll:hover {
+            animation-play-state: paused;
+        }
+        
+        .company-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+        
+        .company-logo {
+            width: 4rem;
+            height: 4rem;
+            background: hsla(211, 89%, 34%, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .company-logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .company-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--muted-foreground);
+            text-align: center;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            position: relative;
+            padding: 6rem 1.5rem;
+            overflow: hidden;
+            background: linear-gradient(120deg, var(--primary), var(--accent));
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 10;
+            max-width: 64rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--accent);
+            color: var(--accent-foreground);
+            padding: 4rem 1.5rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer h3, .footer h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--accent-foreground);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid hsla(222.2, 47.4%, 11.2%, 0.2);
+            color: var(--accent-foreground);
+            opacity: 0.6;
+        }
+        
+        /* Decorative Elements */
+        .circle-decoration {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .circle-primary {
+            background: var(--primary);
+            opacity: 0.05;
+        }
+        
+        .circle-accent {
+            background: var(--accent);
+            opacity: 0.08;
+        }
+        
+        .circle-xl {
+            width: 32rem;
+            height: 32rem;
+        }
+        
+        .circle-lg {
+            width: 24rem;
+            height: 24rem;
+        }
+        
+        .circle-md {
+            width: 16rem;
+            height: 16rem;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3.75rem;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="/" class="logo">uBitto</a>
+            
+            <nav class="nav">
+                <a href="/for-learners">For Learners</a>
+                <a href="/for-educators">For Educators</a>
+                <a href="/for-institutes">For Institutes</a>
+                <a href="/for-experience-makers">For Experience Makers</a>
+                <a href="/membership">Membership</a>
+            </nav>
+            
+            <a href="/for-educators#membership" class="btn btn-primary" style="display: none;">Join as Educator</a>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div>
+                <h1>Teach Smarter,<br>Learn Deeper with AI</h1>
+                <p>From pronunciation to grammar, reading to writing — AI diagnoses, connects, and drives growth.</p>
+                
+                <div class="hero-buttons">
+                    <a href="/for-educators" class="btn btn-hero">Start as Educator</a>
+                    <a href="/for-learners" class="btn btn-outline">Start as Learner</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span><strong>20,000+ Learners</strong></span>
+                    </div>
+                    <div class="hero-stat">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                            <path d="M5 3v4"></path>
+                            <path d="M19 17v4"></path>
+                            <path d="M3 5h4"></path>
+                            <path d="M17 19h4"></path>
+                        </svg>
+                        <span><strong>AI Speaking / Quiz / Analytics</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Overview -->
+    <section class="section">
+        <div class="circle-decoration circle-xl circle-primary" style="top: 5rem; right: 2.5rem; filter: blur(50px);"></div>
+        <div class="circle-decoration circle-lg circle-accent" style="bottom: 5rem; left: 2.5rem; filter: blur(50px);"></div>
+        
+        <div class="container">
+            <div class="section-header">
+                <h2>What is uBitto?</h2>
+                <p>An AI-powered education platform where educators and learners grow together</p>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-bullet"></div>
+                        <p>Class preparation and grading are automated with AI diagnostics and feedback.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-bullet"></div>
+                        <p>Booking, payment, and notifications work seamlessly in one system.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-bullet"></div>
+                        <p>Radar charts visualize learner strengths and weaknesses.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://ubitto-ai-experience.lovable.app/src/assets/experience-learning.jpg" alt="Platform Overview" class="overview-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section section-muted">
+        <div class="container">
+            <div class="section-header">
+                <h2>Use Cases</h2>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="use-case-card">
+                    <h3>Individual Tutors</h3>
+                    <div class="use-case-section">
+                        <div class="use-case-label">Before</div>
+                        <div class="use-case-text">Time-consuming class prep and grading</div>
+                    </div>
+                    <svg class="arrow-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <div class="use-case-section">
+                        <div class="use-case-label">After</div>
+                        <div class="use-case-text">AI provides automatic grading and feedback</div>
+                    </div>
+                    <div class="use-case-delta">42% reduction in operational time</div>
+                </div>
+
+                <div class="use-case-card">
+                    <h3>Self-Paced Programs</h3>
+                    <div class="use-case-section">
+                        <div class="use-case-label">Before</div>
+                        <div class="use-case-text">Students miss out due to fixed schedule conflicts</div>
+                    </div>
+                    <svg class="arrow-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <div class="use-case-section">
+                        <div class="use-case-label">After</div>
+                        <div class="use-case-text">Learn Korean at your own pace with on-demand instructor support</div>
+                    </div>
+                    <div class="use-case-delta">60% improvement in completion rates</div>
+                </div>
+
+                <div class="use-case-card">
+                    <h3>Live Group Classes</h3>
+                    <div class="use-case-section">
+                        <div class="use-case-label">Before</div>
+                        <div class="use-case-text">Challenging to manage multiple students simultaneously</div>
+                    </div>
+                    <svg class="arrow-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <div class="use-case-section">
+                        <div class="use-case-label">After</div>
+                        <div class="use-case-text">Real-time analytics and group performance dashboards</div>
+                    </div>
+                    <div class="use-case-delta">35% increase in class engagement</div>
+                </div>
+
+                <div class="use-case-card">
+                    <h3>1-on-1 Private Tutoring</h3>
+                    <div class="use-case-section">
+                        <div class="use-case-label">Before</div>
+                        <div class="use-case-text">Manual scheduling and payment processing</div>
+                    </div>
+                    <svg class="arrow-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <div class="use-case-section">
+                        <div class="use-case-label">After</div>
+                        <div class="use-case-text">Integrated booking and payment system</div>
+                    </div>
+                    <div class="use-case-delta">50% reduction in administrative time</div>
+                </div>
+
+                <div class="use-case-card">
+                    <h3>Small Academies</h3>
+                    <div class="use-case-section">
+                        <div class="use-case-label">Before</div>
+                        <div class="use-case-text">Scattered instructor management and reports</div>
+                    </div>
+                    <svg class="arrow-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <div class="use-case-section">
+                        <div class="use-case-label">After</div>
+                        <div class="use-case-text">Centralized reports and learning trend analysis</div>
+                    </div>
+                    <div class="use-case-delta">18% increase in re-enrollment</div>
+                </div>
+
+                <div class="use-case-card">
+                    <h3>Language Institutes</h3>
+                    <div class="use-case-section">
+                        <div class="use-case-label">Before</div>
+                        <div class="use-case-text">Complex multi-level class management</div>
+                    </div>
+                    <svg class="arrow-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <div class="use-case-section">
+                        <div class="use-case-label">After</div>
+                        <div class="use-case-text">Automated level assessment and class grouping</div>
+                    </div>
+                    <div class="use-case-delta">30% increase in student satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Companies -->
+    <section class="section section-muted">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Leading Organizations</h2>
+            </div>
+
+            <div style="overflow: hidden; position: relative;">
+                <div class="companies-scroll">
+                    <div class="company-item">
+                        <div class="company-logo"><span>S</span></div>
+                        <div class="company-name">Seoul International School</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-logo"><span>K</span></div>
+                        <div class="company-name">Korean Language Institute</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-logo"><span>G</span></div>
+                        <div class="company-name">Global Learning Center</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-logo"><span>B</span></div>
+                        <div class="company-name">Busan Language Academy</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-logo"><span>K</span></div>
+                        <div class="company-name">Korea University</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-logo"><span>T</span></div>
+                        <div class="company-name">Tech Korea Corp</div>
+                    </div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="company-item">
+                        <div class="company-logo"><span>S</span></div>
+                        <div class="company-name">Seoul International School</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-logo"><span>K</span></div>
+                        <div class="company-name">Korean Language Institute</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-logo"><span>G</span></div>
+                        <div class="company-name">Global Learning Center</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-logo"><span>B</span></div>
+                        <div class="company-name">Busan Language Academy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connecting with Learners -->
+    <section class="section section-muted">
+        <div class="container">
+            <div class="section-header">
+                <h2>Connecting with Learners</h2>
+                <p>Teachers, academies, and experience educators meet learners in one space.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </div>
+                    <h3>Find Teachers</h3>
+                    <a href="/for-learners#find-teacher" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                            <line x1="8" y1="2" x2="8" y2="18"></line>
+                            <line x1="16" y1="6" x2="16" y2="22"></line>
+                        </svg>
+                    </div>
+                    <h3>Browse Experiences</h3>
+                    <a href="/for-experience-makers#browse" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3>Book Now</h3>
+                    <a href="/for-learners#booking" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Get Started Now</h2>
+            
+            <div class="cta-buttons">
+                <a href="/for-educators" class="btn btn-hero">Join as Educator</a>
+                <a href="/for-learners" class="btn btn-outline">Join as Learner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h3>uBitto</h3>
+                    <p>Empowering educators and inspiring learners through AI-powered Korean language education.</p>
+                </div>
+
+                <div>
+                    <h4>uBitto</h4>
+                    <ul class="footer-links">
+                        <li><a href="/for-educators">For Educators</a></li>
+                        <li><a href="/for-learners">For Learners</a></li>
+                        <li><a href="/for-institutes">For Institutes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/ubitto" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="https://linkedin.com/company/ubitto" target="_blank" rel="noopener">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> uBitto. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
