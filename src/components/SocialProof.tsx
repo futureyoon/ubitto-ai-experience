@@ -93,7 +93,7 @@ export const SocialProof = () => {
         >
           <CarouselContent>
             {reviews.map((review, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
                 <Card className="p-8 h-full hover:shadow-lg transition-all duration-300">
                   <div className="flex gap-1 mb-4">
                     {[1, 2, 3, 4, 5].map((star) => (

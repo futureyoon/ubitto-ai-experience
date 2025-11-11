@@ -88,7 +88,7 @@ export const UseCases = () => {
         >
           <CarouselContent>
             {cases.map((useCase, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/6">
                 <Card className="p-8 h-full hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <h3 className="text-2xl font-bold mb-6 text-primary">{useCase.title}</h3>
                   
