@@ -96,13 +96,13 @@ export const SocialProof = () => {
               <CarouselItem key={pageIndex}>
                 <div className="grid md:grid-cols-2 gap-8">
                   {reviews.slice(pageIndex * 4, (pageIndex + 1) * 4).map((review, index) => (
-                    <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300">
-                      <div className="flex gap-1 mb-4">
+                    <Card key={index} className="p-5 hover:shadow-lg transition-all duration-300">
+                      <div className="flex gap-1 mb-3">
                         {[1, 2, 3, 4, 5].map((star) => (
                           <Star key={star} className="w-4 h-4 fill-accent text-accent" />
                         ))}
                       </div>
-                      <p className="text-lg mb-6 italic">"{review.quote}"</p>
+                      <p className="text-base mb-4 italic">"{review.quote}"</p>
                       <div>
                         <p className="font-semibold">{review.name}</p>
                         <p className="text-sm text-muted-foreground">{review.role}</p>
