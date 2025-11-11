@@ -5,6 +5,7 @@ import { CoreValue } from "@/components/CoreValue";
 import { UseCases } from "@/components/UseCases";
 import { Outcomes } from "@/components/Outcomes";
 import { SocialProof } from "@/components/SocialProof";
+import { Companies } from "@/components/Companies";
 import { LearnerConnection } from "@/components/LearnerConnection";
 import { CTA } from "@/components/CTA";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <UseCases />
       <Outcomes />
       <SocialProof />
+      <Companies />
       <LearnerConnection />
       <CTA />
     </div>

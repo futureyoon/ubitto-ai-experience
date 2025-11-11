@@ -92,10 +92,10 @@ export const SocialProof = () => {
           className="w-full"
         >
           <CarouselContent>
-            {Array.from({ length: Math.ceil(reviews.length / 8) }).map((_, pageIndex) => (
+            {Array.from({ length: Math.ceil(reviews.length / 4) }).map((_, pageIndex) => (
               <CarouselItem key={pageIndex}>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {reviews.slice(pageIndex * 8, (pageIndex + 1) * 8).map((review, index) => (
+                <div className="grid md:grid-cols-2 gap-8">
+                  {reviews.slice(pageIndex * 4, (pageIndex + 1) * 4).map((review, index) => (
                     <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300">
                       <div className="flex gap-1 mb-4">
                         {[1, 2, 3, 4, 5].map((star) => (

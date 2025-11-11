@@ -72,9 +72,9 @@ export const UseCases = () => {
   const [api, setApi] = React.useState<CarouselApi>();
 
   return (
-    <section className="py-24 px-6 bg-muted/30">
+    <section className="py-20 px-6 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-up">
+        <div className="text-center mb-12 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Use Cases</h2>
         </div>
 
@@ -89,26 +89,26 @@ export const UseCases = () => {
           <CarouselContent>
             {Array.from({ length: Math.ceil(cases.length / 6) }).map((_, pageIndex) => (
               <CarouselItem key={pageIndex}>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {cases.slice(pageIndex * 6, (pageIndex + 1) * 6).map((useCase, index) => (
-                    <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 hover:scale-105">
-                      <h3 className="text-2xl font-bold mb-6 text-primary">{useCase.title}</h3>
+                    <Card key={index} className="p-6 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <h3 className="text-xl font-bold mb-4 text-primary">{useCase.title}</h3>
                       
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                         <div>
-                          <p className="text-sm font-semibold text-muted-foreground mb-2">Before</p>
-                          <p className="text-foreground">{useCase.before}</p>
+                          <p className="text-xs font-semibold text-muted-foreground mb-1">Before</p>
+                          <p className="text-sm text-foreground">{useCase.before}</p>
                         </div>
 
-                        <ArrowRight className="w-6 h-6 text-primary mx-auto" />
+                        <ArrowRight className="w-5 h-5 text-primary mx-auto" />
 
                         <div>
-                          <p className="text-sm font-semibold text-muted-foreground mb-2">After</p>
-                          <p className="text-foreground">{useCase.after}</p>
+                          <p className="text-xs font-semibold text-muted-foreground mb-1">After</p>
+                          <p className="text-sm text-foreground">{useCase.after}</p>
                         </div>
 
-                        <div className="pt-4 border-t">
-                          <p className="text-xl font-bold text-accent">{useCase.delta}</p>
+                        <div className="pt-3 border-t">
+                          <p className="text-lg font-bold text-accent">{useCase.delta}</p>
                         </div>
                       </div>
                     </Card>
