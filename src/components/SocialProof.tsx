@@ -118,7 +118,7 @@ const reviews = [
 export const SocialProof = () => {
   const [api, setApi] = React.useState<CarouselApi>();
   const autoplayPlugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    Autoplay({ delay: 7000, stopOnInteraction: true })
   );
 
   return (
