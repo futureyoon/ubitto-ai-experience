@@ -1,9 +1,9 @@
 export const Outcomes = () => {
   const kpis = [
+    { label: "Student Retention Period", value: "4x" },
+    { label: "Engagement Rate", value: "6x" },
+    { label: "Income Booked", value: "8x" },
     { label: "Operational Efficiency", value: "+45%" },
-    { label: "Return Rate", value: "+25%" },
-    { label: "Booking Conversion", value: "x2.1" },
-    { label: "AI Quiz Usage", value: "65% monthly active" },
   ];
 
   return (

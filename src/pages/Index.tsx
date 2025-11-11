@@ -7,7 +7,6 @@ import { Outcomes } from "@/components/Outcomes";
 import { SocialProof } from "@/components/SocialProof";
 import { LearnerConnection } from "@/components/LearnerConnection";
 import { CTA } from "@/components/CTA";
-import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -21,7 +20,6 @@ const Index = () => {
       <SocialProof />
       <LearnerConnection />
       <CTA />
-      <Footer />
     </div>
   );
 };

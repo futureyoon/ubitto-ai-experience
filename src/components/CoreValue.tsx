@@ -2,9 +2,9 @@ import { Clock, Target, DollarSign, Merge, Brain, Megaphone } from "lucide-react
 import { Card } from "@/components/ui/card";
 
 const problems = [
-  { icon: Clock, title: "Complex Operations", desc: "Scattered tools lead to time-consuming class prep and management" },
-  { icon: Target, title: "Difficult Personalization", desc: "Hard to identify learner weaknesses in real-time" },
-  { icon: DollarSign, title: "Monetization Challenges", desc: "Booking, payment, and feedback operate separately" },
+  { icon: Clock, title: "Motivation Issues", desc: "Keeping learners motivated is a constant challenge for teachers" },
+  { icon: Target, title: "Scattered Tools", desc: "Teachers juggle multiple apps for quizzes, progress tracking, and student management" },
+  { icon: DollarSign, title: "Inflexible Schedule", desc: "Teachers need flexible options to teach at their free time" },
 ];
 
 const solutions = [
