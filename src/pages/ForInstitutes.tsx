@@ -221,8 +221,8 @@ const ForInstitutes = () => {
               {steps.map((step, index) => (
                 <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                   {/* Step circle */}
-                  <div className="relative z-10 w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent blur-xl opacity-50" />
+                  <div className="relative z-10 w-20 h-20 mx-auto mb-8 rounded-full bg-primary flex items-center justify-center shadow-2xl">
+                    <div className="absolute inset-0 rounded-full bg-primary blur-xl opacity-50" />
                     <span className="relative text-3xl font-black text-white">{step.step}</span>
                   </div>
                   
@@ -389,7 +389,7 @@ const ForInstitutes = () => {
               >
                 {/* Impact metric - compact */}
                 <div className="absolute -top-4 -right-4 z-20">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-xl">
+                  <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-xl">
                     <span className="text-sm font-black text-white text-center px-2 leading-tight">{useCase.delta.split(' ')[0]}</span>
                   </div>
                 </div>
