@@ -245,7 +245,7 @@ const ForEducators = () => {
                 <CarouselItem key={pageIndex}>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {useCases.slice(pageIndex * 3, (pageIndex + 1) * 3).map((useCase, index) => (
-                      <Card key={index} className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/40">
+                      <Card key={index} className="overflow-hidden transition-all duration-300 hover:shadow-xl border-2 hover:border-primary/40">
                         {/* Header with subtle gradient */}
                         <div className="bg-gradient-to-br from-primary/5 to-accent/5 px-6 py-5 border-b">
                           <h3 className="text-xl font-bold text-foreground">
