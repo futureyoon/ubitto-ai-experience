@@ -58,104 +58,129 @@ const ForLearners = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section - Dynamic Asymmetric Layout */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-background">
-        {/* Gradient Background Elements */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl opacity-60" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-accent/15 to-primary/15 rounded-full blur-3xl opacity-50" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Content - Takes 6 columns */}
-            <div className="lg:col-span-6 animate-fade-in">
-              <Badge variant="outline" className="mb-6 border-primary/40">
-                <Sparkles className="w-3 h-3 mr-2" />
-                Learner-first Experience
-              </Badge>
-              
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-[1.1]">
-                Learn smarter.
-                <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                  Grow with confidence.
-                </span>
-              </h1>
-              
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                Real teachers, AI feedback, and cultural experiences — all connected so you can learn faster and enjoy the journey.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Button size="lg" className="shadow-lg shadow-primary/20" asChild>
-                  <a href="#membership">Start Free</a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="#live-demo">Try Live Demo</a>
-                </Button>
-              </div>
-              
-              {/* Stats */}
-              <div className="flex flex-wrap gap-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground">Instant AI</div>
-                    <div className="text-sm text-muted-foreground">feedback</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground">20,000+</div>
-                    <div className="text-sm text-muted-foreground">learners</div>
-                  </div>
-                </div>
-              </div>
+      {/* Hero Section - Centered Dashboard Showcase */}
+      <section className="relative py-16 px-6 overflow-hidden bg-background">
+        <div className="max-w-7xl mx-auto">
+          {/* Top Content - Centered */}
+          <div className="text-center mb-12 animate-fade-in">
+            <Badge variant="outline" className="mb-6">
+              <Sparkles className="w-3 h-3 mr-2" />
+              Learner-first Experience
+            </Badge>
+            
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
+              Learn smarter. Grow with confidence.
+            </h1>
+            
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Real teachers, AI feedback, and cultural experiences — all connected so you can learn faster and enjoy the journey.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" asChild>
+                <a href="#membership">Start Free</a>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="#live-demo">Try Live Demo</a>
+              </Button>
+            </div>
+          </div>
+          
+          {/* Dashboard Preview with Floating Info Cards */}
+          <div className="relative max-w-5xl mx-auto animate-fade-in">
+            {/* Main Dashboard */}
+            <div className="relative rounded-3xl overflow-hidden border-4 border-border shadow-2xl">
+              <img 
+                src="/src/assets/learner-dashboard.png" 
+                alt="Learner Dashboard Preview"
+                className="w-full"
+              />
+              {/* Gradient Overlay at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background/80 to-transparent" />
             </div>
             
-            {/* Image - Takes 6 columns with overlap effect */}
-            <div className="lg:col-span-6 relative animate-fade-in">
-              {/* Main Dashboard Image */}
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
-                <img 
-                  src="/src/assets/learner-dashboard.png" 
-                  alt="Learner Dashboard Preview"
-                  className="relative rounded-2xl shadow-2xl border-2 border-border w-full"
-                />
-              </div>
-              
-              {/* Floating Feature Cards */}
-              <div className="absolute -left-8 top-1/4 hidden xl:block animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <div className="bg-card rounded-xl p-4 shadow-xl border-2 border-border w-48">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
-                      <div className="text-green-500 text-xl">✓</div>
+            {/* Floating Feature Cards - Top Left */}
+            <div className="absolute -top-8 left-8 lg:left-12 animate-fade-in hidden md:block" style={{ animationDelay: '0.2s' }}>
+              <Card className="w-56 border-2 shadow-xl">
+                <CardContent className="p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Mic className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold">+24% Score</div>
-                      <div className="text-xs text-muted-foreground">Speaking</div>
+                      <div className="font-bold text-sm mb-1">AI Speaking Check</div>
+                      <div className="text-xs text-muted-foreground">Instant pronunciation feedback</div>
                     </div>
                   </div>
-                </div>
-              </div>
-              
-              <div className="absolute -right-8 bottom-1/4 hidden xl:block animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                <div className="bg-card rounded-xl p-4 shadow-xl border-2 border-border w-48">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <BarChart3 className="w-5 h-5 text-primary" />
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Floating Feature Cards - Top Right */}
+            <div className="absolute -top-8 right-8 lg:right-12 animate-fade-in hidden md:block" style={{ animationDelay: '0.3s' }}>
+              <Card className="w-56 border-2 shadow-xl">
+                <CardContent className="p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <BarChart3 className="w-6 h-6 text-accent" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold">7 Skills</div>
-                      <div className="text-xs text-muted-foreground">Tracked</div>
+                      <div className="font-bold text-sm mb-1">7-Skill Radar</div>
+                      <div className="text-xs text-muted-foreground">Track your progress visually</div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Floating Feature Cards - Bottom Left */}
+            <div className="absolute -bottom-8 left-8 lg:left-16 animate-fade-in hidden lg:block" style={{ animationDelay: '0.4s' }}>
+              <Card className="w-64 border-2 shadow-xl">
+                <CardContent className="p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                      <Users2 className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm mb-1">Real Teachers</div>
+                      <div className="text-xs text-muted-foreground">Learn from experienced educators</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Floating Feature Cards - Bottom Right */}
+            <div className="absolute -bottom-8 right-8 lg:right-16 animate-fade-in hidden lg:block" style={{ animationDelay: '0.5s' }}>
+              <Card className="w-64 border-2 shadow-xl">
+                <CardContent className="p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm mb-1">Cultural Experiences</div>
+                      <div className="text-xs text-muted-foreground">Learn through real activities</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+          
+          {/* Bottom Stats Bar */}
+          <div className="mt-24 flex flex-wrap justify-center gap-12 animate-fade-in">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary mb-1">20,000+</div>
+              <div className="text-sm text-muted-foreground">Active Learners</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent mb-1">24%</div>
+              <div className="text-sm text-muted-foreground">Avg. Score Increase</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">7 Skills</div>
+              <div className="text-sm text-muted-foreground">Tracked & Improved</div>
             </div>
           </div>
         </div>
