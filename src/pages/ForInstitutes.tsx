@@ -86,128 +86,156 @@ const ForInstitutes = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section - Dark */}
-      <section className="relative min-h-screen flex items-center px-6 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
+      {/* Hero Section - Full Width Centered */}
+      <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+        </div>
         
-        <div className="max-w-7xl mx-auto w-full py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <Badge variant="outline" className="mb-4 bg-white/10 text-white border-white/20">
-                Institution Solutions
-              </Badge>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Scale your academy with a unified teaching OS.
-              </h1>
-              <p className="text-xl text-gray-300 mb-8">
-                Centralize multi-educator management, scheduling, payments, analytics, and cultural experiences — all in one ecosystem.
-              </p>
-              
-              <div className="flex flex-wrap gap-4 mb-8">
-                <Badge variant="secondary" className="py-2 px-4 bg-white/10 text-white border-white/20">
-                  <Building2 className="h-4 w-4 mr-2" />
-                  Multi-campus ready
-                </Badge>
-                <Badge variant="secondary" className="py-2 px-4 bg-white/10 text-white border-white/20">
-                  <ShieldCheck className="h-4 w-4 mr-2" />
-                  Admin controls & audit logs
-                </Badge>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="default" asChild>
-                  <a href="#request-demo">Request a Demo</a>
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white/10 text-white border-white/20 hover:bg-white/20" asChild>
-                  <a href="/for-educators">Explore Educator Tools</a>
-                </Button>
-              </div>
+        <div className="max-w-5xl mx-auto text-center relative z-10 py-20">
+          <div className="animate-fade-in space-y-8">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
+              <Building2 className="w-5 h-5 text-primary" />
+              <span className="text-sm font-semibold">Enterprise Learning Platform</span>
+              <ShieldCheck className="w-5 h-5 text-accent" />
             </div>
             
-            <div className="animate-scale-in relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <Building2 className="w-20 h-20 mx-auto mb-4 text-white/60" />
-                    <p className="text-white/60 text-sm">Admin Console Preview</p>
-                  </div>
-                </div>
+            <h1 className="text-6xl lg:text-8xl font-black leading-tight tracking-tight">
+              Scale your<br />
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
+                teaching empire
+              </span>
+            </h1>
+            
+            <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Multi-educator management · Unified analytics · Automated operations · One powerful ecosystem
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+              <Button size="lg" className="text-lg px-12 py-8 bg-white text-gray-900 hover:bg-gray-100 shadow-2xl" asChild>
+                <a href="#request-demo">Request Demo</a>
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-12 py-8 bg-white/5 text-white border-2 border-white/20 hover:bg-white/10 backdrop-blur-sm" asChild>
+                <a href="#features">See Features</a>
+              </Button>
+            </div>
+            
+            {/* Stats bar */}
+            <div className="grid grid-cols-3 gap-8 pt-16 max-w-3xl mx-auto border-t border-white/10">
+              <div>
+                <div className="text-4xl font-bold text-white mb-2">10K+</div>
+                <div className="text-sm text-gray-400">Active educators</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-white mb-2">45%</div>
+                <div className="text-sm text-gray-400">Efficiency gain</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-white mb-2">99.9%</div>
+                <div className="text-sm text-gray-400">Uptime SLA</div>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full p-1">
+            <div className="w-1.5 h-3 bg-white/50 rounded-full mx-auto animate-pulse" />
+          </div>
+        </div>
       </section>
 
-      {/* Value Props - Enterprise Grid */}
-      <section className="py-24 px-6 bg-gradient-to-b from-background to-muted/20">
+      {/* Value Props - Bento Grid */}
+      <section id="features" className="py-32 px-6 bg-white dark:bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
-              <span className="text-sm font-semibold text-primary">Core Capabilities</span>
-            </div>
-            <h2 className="text-5xl lg:text-6xl font-bold mb-6">Built for real institutional operations</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Unify programs, people, and performance — with less overhead.
+          <div className="max-w-3xl mb-20 animate-fade-in">
+            <div className="text-sm font-bold text-primary mb-4 uppercase tracking-wider">Core Platform</div>
+            <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-tight">
+              Everything institutions need in one place
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              From multi-campus operations to individual learner analytics
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6">
-            {valueProps.map((item, index) => (
-              <div 
-                key={index} 
-                className="group relative bg-background p-8 rounded-3xl border-2 border-border hover:border-primary/30 transition-all animate-fade-in"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <item.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-base text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Large featured card */}
+            <div className="lg:col-span-2 lg:row-span-2 bg-gradient-to-br from-primary/10 via-accent/5 to-background p-12 rounded-3xl border-2 border-border group hover:border-primary/50 transition-all">
+              <Users2 className="h-16 w-16 text-primary mb-6" />
+              <h3 className="text-3xl font-bold mb-4">{valueProps[0].title}</h3>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{valueProps[0].desc}</p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-2 h-2 rounded-full bg-primary" />
+                  <span>Bulk educator onboarding</span>
                 </div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-3xl -z-10 group-hover:scale-150 transition-transform opacity-0 group-hover:opacity-100" />
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-2 h-2 rounded-full bg-primary" />
+                  <span>Permission management</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-2 h-2 rounded-full bg-primary" />
+                  <span>Workload distribution</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Smaller cards */}
+            {valueProps.slice(1, 3).map((item, index) => (
+              <div key={index} className="bg-muted/50 p-8 rounded-3xl border-2 border-border hover:border-primary/50 transition-all group">
+                <item.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-base text-muted-foreground">{item.desc}</p>
+              </div>
+            ))}
+            
+            {valueProps.slice(3).map((item, index) => (
+              <div key={index} className="bg-background p-8 rounded-3xl border-2 border-border hover:border-primary/50 transition-all group">
+                <item.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-base text-muted-foreground">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works - Timeline Style */}
-      <section className="py-24 px-6 bg-background">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-20 animate-fade-in">
-            <h2 className="text-5xl font-bold mb-4">How it works</h2>
-            <p className="text-xl text-muted-foreground">From setup to outcomes in three steps</p>
+      {/* How It Works - Horizontal Timeline */}
+      <section className="py-32 px-6 bg-gradient-to-b from-muted/30 to-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-24 animate-fade-in">
+            <div className="text-sm font-bold text-primary mb-4 uppercase tracking-wider">Implementation</div>
+            <h2 className="text-5xl lg:text-7xl font-black mb-6">Simple. Fast. Proven.</h2>
+            <p className="text-xl text-muted-foreground">Get up and running in weeks, not months</p>
           </div>
           
-          <div className="space-y-12">
-            {steps.map((step, index) => (
-              <div key={index} className="relative animate-fade-in">
-                <div className="flex items-start gap-8">
-                  {/* Step Number Circle */}
-                  <div className="flex-shrink-0 relative">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-3xl font-bold text-white shadow-lg">
-                      {step.step}
-                    </div>
-                    {index < steps.length - 1 && (
-                      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-1 h-24 bg-gradient-to-b from-primary/50 to-transparent" />
-                    )}
+          <div className="relative">
+            {/* Horizontal connecting line */}
+            <div className="hidden lg:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+            
+            <div className="grid lg:grid-cols-3 gap-12 relative">
+              {steps.map((step, index) => (
+                <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                  {/* Step circle */}
+                  <div className="relative z-10 w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent blur-xl opacity-50" />
+                    <span className="relative text-5xl font-black text-white">{step.step}</span>
                   </div>
                   
-                  {/* Content */}
-                  <div className="flex-1 bg-muted/30 p-8 rounded-2xl border border-border">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <step.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-2xl font-bold">{step.title}</h3>
+                  <div className="text-center space-y-4">
+                    <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <step.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <p className="text-lg text-muted-foreground">{step.desc}</p>
+                    <h3 className="text-2xl font-bold">{step.title}</h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -342,48 +370,53 @@ const ForInstitutes = () => {
         </div>
       </section>
 
-      {/* Use Cases - Compact Stats Cards */}
-      <section className="py-24 px-6 bg-gradient-to-b from-muted/30 to-background">
+      {/* Use Cases - Impact Cards */}
+      <section className="py-32 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
-              <span className="text-sm font-semibold text-primary">Case Studies</span>
-            </div>
-            <h2 className="text-5xl lg:text-6xl font-bold mb-6">Institutional use cases</h2>
-            <p className="text-xl text-muted-foreground">Results you can measure</p>
+          <div className="max-w-3xl mb-20 animate-fade-in">
+            <div className="text-sm font-bold text-primary mb-4 uppercase tracking-wider">Success Stories</div>
+            <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-tight">
+              Real impact.<br />Real numbers.
+            </h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 gap-8">
             {useCases.map((useCase, index) => (
               <div 
                 key={index} 
-                className="group relative bg-background p-8 rounded-3xl border-2 border-border hover:border-primary/50 transition-all animate-fade-in overflow-hidden"
+                className="relative group animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-6">{useCase.title}</h3>
-                  
-                  <div className="space-y-6 mb-6">
-                    <div className="relative pl-6 border-l-2 border-red-500/30">
-                      <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-red-500 -translate-x-[7px]" />
-                      <p className="text-xs font-bold uppercase tracking-wider text-red-600 dark:text-red-400 mb-2">Before</p>
-                      <p className="text-sm text-muted-foreground">{useCase.before}</p>
-                    </div>
-                    
-                    <div className="relative pl-6 border-l-2 border-green-500/30">
-                      <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-green-500 -translate-x-[7px]" />
-                      <p className="text-xs font-bold uppercase tracking-wider text-green-600 dark:text-green-400 mb-2">After</p>
-                      <p className="text-sm">{useCase.after}</p>
-                    </div>
+                {/* Impact metric - large */}
+                <div className="absolute -top-6 -right-6 z-20">
+                  <div className="w-28 h-28 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-xl">
+                    <span className="text-xl font-black text-white">{useCase.delta.split(' ')[0]}</span>
                   </div>
-
-                  <div className="pt-6 border-t border-border">
-                    <p className="text-sm font-semibold text-muted-foreground mb-2">Impact</p>
-                    <p className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      {useCase.delta}
-                    </p>
+                </div>
+                
+                <div className="relative bg-gradient-to-br from-background via-muted/30 to-background p-10 rounded-3xl border-2 border-border group-hover:border-primary/50 transition-all min-h-[380px] flex flex-col">
+                  <div className="mb-auto">
+                    <h3 className="text-2xl font-bold mb-8">{useCase.title}</h3>
+                    
+                    <div className="space-y-6">
+                      <div>
+                        <div className="text-xs font-bold uppercase tracking-wider text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
+                          <div className="w-3 h-3 rounded-full bg-red-500" />
+                          Before
+                        </div>
+                        <p className="text-base text-muted-foreground pl-5">{useCase.before}</p>
+                      </div>
+                      
+                      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+                      
+                      <div>
+                        <div className="text-xs font-bold uppercase tracking-wider text-green-600 dark:text-green-400 mb-3 flex items-center gap-2">
+                          <div className="w-3 h-3 rounded-full bg-green-500" />
+                          After
+                        </div>
+                        <p className="text-base font-medium pl-5">{useCase.after}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
