@@ -241,10 +241,10 @@ const ForEducators = () => {
             className="w-full"
           >
             <CarouselContent>
-              {Array.from({ length: Math.ceil(useCases.length / 6) }).map((_, pageIndex) => (
+              {Array.from({ length: Math.ceil(useCases.length / 3) }).map((_, pageIndex) => (
                 <CarouselItem key={pageIndex}>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {useCases.slice(pageIndex * 6, (pageIndex + 1) * 6).map((useCase, index) => (
+                    {useCases.slice(pageIndex * 3, (pageIndex + 1) * 3).map((useCase, index) => (
                       <Card key={index} className="p-6 transition-all duration-300 hover:scale-105">
                         <h3 className="text-xl font-bold mb-4 text-primary">{useCase.title}</h3>
                         
