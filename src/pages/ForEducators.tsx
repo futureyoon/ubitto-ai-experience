@@ -9,9 +9,22 @@ import {
   Search, Map, CalendarClock, CheckCircle2, Star
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import { CarouselDots } from "@/components/ui/carousel-dots";
+import * as React from "react";
+import { ArrowRight } from "lucide-react";
 import educatorDashboard from "@/assets/educator-dashboard.png";
 
 const ForEducators = () => {
+  const [api, setApi] = React.useState<CarouselApi>();
+  
   const valuProps = [
     { icon: Mic, title: "AI Speaking & Expression Analysis", desc: "Get instant feedback on pronunciation, tone, and fluency." },
     { icon: Calendar, title: "Integrated Scheduling & Payments", desc: "Manage bookings, payments, and reminders effortlessly." },
@@ -219,28 +232,50 @@ const ForEducators = () => {
             <p className="text-xl text-muted-foreground">Before and after using Ubitto</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {useCases.map((useCase, index) => (
-              <Card key={index} className="hover-scale">
-                <CardHeader>
-                  <CardTitle className="text-2xl mb-4">{useCase.title}</CardTitle>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="text-sm font-semibold text-muted-foreground mb-1">Before</p>
-                      <p className="text-foreground/70">{useCase.before}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-primary mb-1">After</p>
-                      <p className="text-foreground">{useCase.after}</p>
-                    </div>
-                    <Badge className="bg-accent text-accent-foreground">
-                      {useCase.delta}
-                    </Badge>
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {Array.from({ length: Math.ceil(useCases.length / 6) }).map((_, pageIndex) => (
+                <CarouselItem key={pageIndex}>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {useCases.slice(pageIndex * 6, (pageIndex + 1) * 6).map((useCase, index) => (
+                      <Card key={index} className="p-6 transition-all duration-300 hover:scale-105">
+                        <h3 className="text-xl font-bold mb-4 text-primary">{useCase.title}</h3>
+                        
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-xs font-semibold text-muted-foreground mb-1">Before</p>
+                            <p className="text-sm text-foreground">{useCase.before}</p>
+                          </div>
+
+                          <ArrowRight className="w-5 h-5 text-primary mx-auto" />
+
+                          <div>
+                            <p className="text-xs font-semibold text-muted-foreground mb-1">After</p>
+                            <p className="text-sm text-foreground">{useCase.after}</p>
+                          </div>
+
+                          <div className="pt-3 border-t">
+                            <p className="text-lg font-bold text-accent">{useCase.delta}</p>
+                          </div>
+                        </div>
+                      </Card>
+                    ))}
                   </div>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
+          
+          <CarouselDots api={api} />
         </div>
       </section>
 
