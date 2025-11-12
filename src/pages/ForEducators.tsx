@@ -30,7 +30,13 @@ const ForEducators = () => {
   const useCases = [
     { title: "Private Tutor", before: "Manual grading & time confusion", after: "AI scoring and automated scheduling", delta: "42% less admin time" },
     { title: "Small Academy", before: "Fragmented data and team reports", after: "Centralized analytics and cohort tracking", delta: "Retention rate +18%" },
-    { title: "Experience Host", before: "Booking and feedback handled separately", after: "Bookings, exposure, and reviews in one place", delta: "2× more bookings" }
+    { title: "Experience Host", before: "Booking and feedback handled separately", after: "Bookings, exposure, and reviews in one place", delta: "2× more bookings" },
+    { title: "Live Group Classes", before: "Challenging to manage multiple students simultaneously", after: "Real-time analytics and group performance dashboards", delta: "35% increase in engagement" },
+    { title: "1-on-1 Tutoring", before: "Manual scheduling and payment processing", after: "Integrated booking and payment system", delta: "50% reduction in admin time" },
+    { title: "Language Institute", before: "Complex multi-level class management", after: "Automated level assessment and class grouping", delta: "30% increase in satisfaction" },
+    { title: "Corporate Training", before: "Difficulty tracking ROI and employee progress", after: "Comprehensive analytics and performance reporting", delta: "3× faster skill acquisition" },
+    { title: "Self-Paced Programs", before: "Students miss out due to fixed schedule conflicts", after: "Learn at your own pace with on-demand support", delta: "60% better completion rates" },
+    { title: "Korean Language Schools", before: "Limited resources for individualized feedback", after: "AI-powered personalized learning paths", delta: "45% improvement in test scores" }
   ];
 
   const testimonials = [
