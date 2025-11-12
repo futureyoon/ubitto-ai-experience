@@ -221,9 +221,9 @@ const ForInstitutes = () => {
               {steps.map((step, index) => (
                 <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                   {/* Step circle */}
-                  <div className="relative z-10 w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl">
+                  <div className="relative z-10 w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl">
                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent blur-xl opacity-50" />
-                    <span className="relative text-5xl font-black text-white">{step.step}</span>
+                    <span className="relative text-3xl font-black text-white">{step.step}</span>
                   </div>
                   
                   <div className="text-center space-y-4">
@@ -387,10 +387,10 @@ const ForInstitutes = () => {
                 className="relative group animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {/* Impact metric - large */}
-                <div className="absolute -top-6 -right-6 z-20">
-                  <div className="w-28 h-28 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-xl">
-                    <span className="text-xl font-black text-white">{useCase.delta.split(' ')[0]}</span>
+                {/* Impact metric - compact */}
+                <div className="absolute -top-4 -right-4 z-20">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-xl">
+                    <span className="text-sm font-black text-white text-center px-2 leading-tight">{useCase.delta.split(' ')[0]}</span>
                   </div>
                 </div>
                 
