@@ -412,10 +412,10 @@ const ForLearners = () => {
             </Card>
 
             <Card className="border-2 hover:border-primary/40 transition-all animate-fade-in">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <Badge variant="outline">For faster growth</Badge>
-              </div>
               <CardHeader>
+                <div className="mb-2">
+                  <Badge variant="outline">For faster growth</Badge>
+                </div>
                 <CardTitle className="text-3xl">Premium</CardTitle>
                 <div className="text-4xl font-bold mt-4">Monthly plan</div>
               </CardHeader>
