@@ -59,37 +59,53 @@ const ForLearners = () => {
       <Header />
       
       {/* Hero Section - Centered Dashboard Showcase */}
-      <section className="relative py-12 px-6 overflow-hidden bg-background">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative min-h-screen flex items-center px-6 overflow-hidden bg-background">
+        <div className="max-w-6xl mx-auto w-full py-8">
           {/* Top Content - Centered */}
-          <div className="text-center mb-8 animate-fade-in">
-            <Badge variant="outline" className="mb-4">
+          <div className="text-center mb-6 animate-fade-in">
+            <Badge variant="outline" className="mb-3">
               <Sparkles className="w-3 h-3 mr-2" />
               Learner-first Experience
             </Badge>
             
-            <h1 className="text-4xl lg:text-6xl font-bold mb-4 leading-tight max-w-4xl mx-auto">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-3 leading-tight">
               Learn smarter. Grow with confidence.
             </h1>
             
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Real teachers, AI feedback, and cultural experiences — all connected so you can learn faster and enjoy the journey.
+            <p className="text-base text-muted-foreground mb-4 max-w-xl mx-auto">
+              Real teachers, AI feedback, and cultural experiences — all connected.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" asChild>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+              <Button asChild>
                 <a href="#membership">Start Free</a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button variant="outline" asChild>
                 <a href="#live-demo">Try Live Demo</a>
               </Button>
+            </div>
+            
+            {/* Inline Stats */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-primary" />
+                <span className="font-semibold">20,000+ learners</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-accent" />
+                <span className="font-semibold">24% score increase</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-600" />
+                <span className="font-semibold">7 skills tracked</span>
+              </div>
             </div>
           </div>
           
           {/* Dashboard Preview with Floating Info Cards */}
-          <div className="relative max-w-5xl mx-auto animate-fade-in">
+          <div className="relative max-w-4xl mx-auto animate-fade-in">
             {/* Main Dashboard */}
-            <div className="relative rounded-3xl overflow-hidden border-4 border-border shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-border shadow-xl">
               <img 
                 src="/src/assets/learner-dashboard.png" 
                 alt="Learner Dashboard Preview"
@@ -97,88 +113,69 @@ const ForLearners = () => {
               />
             </div>
             
-            {/* Floating Feature Cards - Top Left */}
-            <div className="absolute -top-6 left-8 lg:left-12 animate-fade-in hidden md:block" style={{ animationDelay: '0.2s' }}>
-              <Card className="w-52 border-2 shadow-xl">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Mic className="w-5 h-5 text-primary" />
+            {/* Floating Feature Cards - Smaller and positioned closer */}
+            <div className="absolute -top-4 left-4 animate-fade-in hidden md:block" style={{ animationDelay: '0.2s' }}>
+              <Card className="w-44 border-2 shadow-lg">
+                <CardContent className="p-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Mic className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <div className="font-bold text-sm mb-0.5">AI Speaking Check</div>
-                      <div className="text-xs text-muted-foreground">Instant feedback</div>
+                      <div className="font-bold text-xs">AI Speaking</div>
+                      <div className="text-[10px] text-muted-foreground">Instant feedback</div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
             
-            {/* Floating Feature Cards - Top Right */}
-            <div className="absolute -top-6 right-8 lg:right-12 animate-fade-in hidden md:block" style={{ animationDelay: '0.3s' }}>
-              <Card className="w-52 border-2 shadow-xl">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                      <BarChart3 className="w-5 h-5 text-accent" />
+            <div className="absolute -top-4 right-4 animate-fade-in hidden md:block" style={{ animationDelay: '0.3s' }}>
+              <Card className="w-44 border-2 shadow-lg">
+                <CardContent className="p-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <BarChart3 className="w-4 h-4 text-accent" />
                     </div>
                     <div>
-                      <div className="font-bold text-sm mb-0.5">7-Skill Radar</div>
-                      <div className="text-xs text-muted-foreground">Visual progress</div>
+                      <div className="font-bold text-xs">7-Skill Radar</div>
+                      <div className="text-[10px] text-muted-foreground">Track progress</div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
             
-            {/* Floating Feature Cards - Bottom Left */}
-            <div className="absolute -bottom-6 left-8 lg:left-16 animate-fade-in hidden lg:block" style={{ animationDelay: '0.4s' }}>
-              <Card className="w-56 border-2 shadow-xl">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                      <Users2 className="w-5 h-5 text-green-600" />
+            <div className="absolute -bottom-4 left-8 animate-fade-in hidden lg:block" style={{ animationDelay: '0.4s' }}>
+              <Card className="w-48 border-2 shadow-lg">
+                <CardContent className="p-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                      <Users2 className="w-4 h-4 text-green-600" />
                     </div>
                     <div>
-                      <div className="font-bold text-sm mb-0.5">Real Teachers</div>
-                      <div className="text-xs text-muted-foreground">Expert educators</div>
+                      <div className="font-bold text-xs">Real Teachers</div>
+                      <div className="text-[10px] text-muted-foreground">Expert educators</div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
             
-            {/* Floating Feature Cards - Bottom Right */}
-            <div className="absolute -bottom-6 right-8 lg:right-16 animate-fade-in hidden lg:block" style={{ animationDelay: '0.5s' }}>
-              <Card className="w-56 border-2 shadow-xl">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-purple-600" />
+            <div className="absolute -bottom-4 right-8 animate-fade-in hidden lg:block" style={{ animationDelay: '0.5s' }}>
+              <Card className="w-48 border-2 shadow-lg">
+                <CardContent className="p-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-4 h-4 text-purple-600" />
                     </div>
                     <div>
-                      <div className="font-bold text-sm mb-0.5">Cultural Experiences</div>
-                      <div className="text-xs text-muted-foreground">Real activities</div>
+                      <div className="font-bold text-xs">Cultural Experiences</div>
+                      <div className="text-[10px] text-muted-foreground">Real activities</div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-          
-          {/* Bottom Stats Bar */}
-          <div className="mt-16 flex flex-wrap justify-center gap-8 animate-fade-in">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary mb-1">20,000+</div>
-              <div className="text-xs text-muted-foreground">Active Learners</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-accent mb-1">24%</div>
-              <div className="text-xs text-muted-foreground">Avg. Score Increase</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-600 mb-1">7 Skills</div>
-              <div className="text-xs text-muted-foreground">Tracked & Improved</div>
             </div>
           </div>
         </div>
