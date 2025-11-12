@@ -31,11 +31,24 @@ export const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
         {/* Left - Text */}
         <div className="animate-fade-up">
+          {/* Trust Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+            <div className="flex -space-x-2">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-white" />
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-secondary to-accent border-2 border-white" />
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-primary border-2 border-white" />
+            </div>
+            <span className="text-sm font-semibold text-white">Trusted by 20,000+ learners worldwide</span>
+          </div>
+
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Teach Smarter,<br />Learn Deeper with AI
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8">
+          <p className="text-lg md:text-xl text-white/90 mb-4">
             From pronunciation to grammar, reading to writing — AI diagnoses, connects, and drives growth.
+          </p>
+          <p className="text-base md:text-lg text-white/80 mb-8 font-medium">
+            ✓ Real-time AI feedback &nbsp;•&nbsp; ✓ Automated grading &nbsp;•&nbsp; ✓ Personalized learning paths
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
