@@ -245,28 +245,37 @@ const ForEducators = () => {
                 <CarouselItem key={pageIndex}>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {useCases.slice(pageIndex * 3, (pageIndex + 1) * 3).map((useCase, index) => (
-                      <Card key={index} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/30">
-                        {/* Header */}
-                        <div className="bg-muted/30 px-6 py-4 border-b">
+                      <Card key={index} className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/40">
+                        {/* Header with subtle gradient */}
+                        <div className="bg-gradient-to-br from-primary/5 to-accent/5 px-6 py-5 border-b">
                           <h3 className="text-xl font-bold text-foreground">
                             {useCase.title}
                           </h3>
                         </div>
                         
-                        {/* Before/After Content */}
-                        <div className="p-6 space-y-4">
-                          <div>
-                            <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wide">Before</p>
-                            <p className="text-sm text-foreground/70">{useCase.before}</p>
-                          </div>
-                          
-                          <div className="border-l-2 border-primary pl-4">
-                            <p className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide">After</p>
-                            <p className="text-sm text-foreground">{useCase.after}</p>
+                        {/* Before/After Split */}
+                        <div className="p-6">
+                          <div className="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                              <div className="flex items-center gap-2 mb-3">
+                                <div className="w-2 h-2 rounded-full bg-muted-foreground/40"></div>
+                                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Before</p>
+                              </div>
+                              <p className="text-sm text-foreground/70 leading-relaxed">{useCase.before}</p>
+                            </div>
+                            
+                            <div className="border-l-2 border-primary/30 pl-6">
+                              <div className="flex items-center gap-2 mb-3">
+                                <div className="w-2 h-2 rounded-full bg-primary"></div>
+                                <p className="text-xs font-bold uppercase tracking-wider text-primary">After</p>
+                              </div>
+                              <p className="text-sm text-foreground leading-relaxed">{useCase.after}</p>
+                            </div>
                           </div>
 
-                          {/* Results */}
-                          <div className="pt-4 mt-4 border-t">
+                          {/* Impact Badge */}
+                          <div className="bg-accent/5 rounded-lg px-4 py-3 border border-accent/20">
+                            <p className="text-xs font-semibold text-muted-foreground mb-1">Impact</p>
                             <p className="text-lg font-bold text-accent">{useCase.delta}</p>
                           </div>
                         </div>
