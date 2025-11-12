@@ -245,24 +245,45 @@ const ForEducators = () => {
                 <CarouselItem key={pageIndex}>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {useCases.slice(pageIndex * 3, (pageIndex + 1) * 3).map((useCase, index) => (
-                      <Card key={index} className="p-6 transition-all duration-300 hover:scale-105">
-                        <h3 className="text-xl font-bold mb-4 text-primary">{useCase.title}</h3>
+                      <Card key={index} className="group overflow-hidden transition-all duration-300 hover:shadow-xl border-2 hover:border-primary/30">
+                        {/* Header with gradient */}
+                        <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 p-6 border-b">
+                          <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                            {useCase.title}
+                          </h3>
+                        </div>
                         
-                        <div className="space-y-3">
-                          <div>
-                            <p className="text-xs font-semibold text-muted-foreground mb-1">Before</p>
-                            <p className="text-sm text-foreground">{useCase.before}</p>
+                        {/* Before/After Split Layout */}
+                        <div className="p-6">
+                          <div className="grid grid-cols-2 gap-4 mb-6">
+                            <div className="space-y-2">
+                              <div className="flex items-center gap-2 mb-3">
+                                <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
+                                  <span className="text-sm font-bold text-muted-foreground">⚠️</span>
+                                </div>
+                                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Before</p>
+                              </div>
+                              <p className="text-sm text-foreground/80 leading-relaxed">{useCase.before}</p>
+                            </div>
+                            
+                            <div className="space-y-2 border-l-2 border-primary/20 pl-4">
+                              <div className="flex items-center gap-2 mb-3">
+                                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                                  <span className="text-sm font-bold text-primary">✓</span>
+                                </div>
+                                <p className="text-xs font-bold uppercase tracking-wider text-primary">After</p>
+                              </div>
+                              <p className="text-sm text-foreground leading-relaxed">{useCase.after}</p>
+                            </div>
                           </div>
 
-                          <ArrowRight className="w-5 h-5 text-primary mx-auto" />
-
-                          <div>
-                            <p className="text-xs font-semibold text-muted-foreground mb-1">After</p>
-                            <p className="text-sm text-foreground">{useCase.after}</p>
-                          </div>
-
-                          <div className="pt-3 border-t">
-                            <p className="text-lg font-bold text-accent">{useCase.delta}</p>
+                          {/* Results Badge */}
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-primary/20 to-secondary/20 blur-xl"></div>
+                            <div className="relative bg-gradient-to-r from-accent/10 to-primary/10 rounded-lg p-4 text-center border border-primary/20">
+                              <p className="text-xs font-semibold text-muted-foreground mb-1 uppercase tracking-wider">Impact</p>
+                              <p className="text-xl font-bold text-primary">{useCase.delta}</p>
+                            </div>
                           </div>
                         </div>
                       </Card>
