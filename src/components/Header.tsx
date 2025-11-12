@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const navItems = [
   { label: "For Learners", href: "/for-learners" },
@@ -22,6 +23,15 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const cta = pathname.startsWith("/for-learners")
+    ? { label: "Start Learning", href: "/for-learners#membership" }
+    : pathname.startsWith("/for-educators")
+    ? { label: "Join as Educator", href: "/for-educators#membership" }
+    : { label: "Start Learning", href: "/for-learners#membership" };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -41,7 +51,7 @@ export const Header = () => {
             <a
               key={item.href}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors"
+              className={`text-foreground/80 hover:text-primary transition-colors ${pathname === item.href ? 'text-primary font-semibold' : ''}`}
             >
               {item.label}
             </a>
@@ -50,7 +60,7 @@ export const Header = () => {
 
         <div className="hidden lg:block">
           <Button variant="default" asChild>
-            <a href="/for-educators#membership">Join as Educator</a>
+            <a href={cta.href}>{cta.label}</a>
           </Button>
         </div>
 
@@ -71,13 +81,13 @@ export const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors"
+                className={`text-foreground/80 hover:text-primary transition-colors ${pathname === item.href ? 'text-primary font-semibold' : ''}`}
               >
                 {item.label}
               </a>
             ))}
             <Button variant="default" asChild className="w-full">
-              <a href="/for-educators#membership">Join as Educator</a>
+              <a href={cta.href}>{cta.label}</a>
             </Button>
           </nav>
         </div>
